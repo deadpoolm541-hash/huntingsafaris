@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;600;700&amp;family=Manrope:wght@400;500&amp;family=Work+Sans:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed": "#d4e7d9",
+                        "outline": "#737874",
+                        "on-surface": "#1b1c1c",
+                        "inverse-primary": "#b8cbbe",
+                        "secondary-container": "#ffc390",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#ffdcbc",
+                        "surface": "#fcf9f8",
+                        "tertiary": "#1f0f00",
+                        "on-primary-fixed": "#0f1f16",
+                        "on-secondary-fixed-variant": "#653d16",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#2c1700",
+                        "surface-variant": "#e4e2e1",
+                        "surface-container-low": "#f6f3f2",
+                        "primary-fixed-dim": "#b8cbbe",
+                        "outline-variant": "#c3c8c2",
+                        "secondary-fixed-dim": "#f5bb89",
+                        "on-primary-container": "#819387",
+                        "tertiary-fixed-dim": "#ffb86a",
+                        "primary": "#06160e",
+                        "secondary": "#81542b",
+                        "surface-container-highest": "#e4e2e1",
+                        "on-tertiary-fixed-variant": "#683d00",
+                        "tertiary-container": "#3c2100",
+                        "on-error-container": "#93000a",
+                        "on-surface-variant": "#434844",
+                        "primary-container": "#1b2b22",
+                        "on-secondary-fixed": "#2e1500",
+                        "error": "#ba1a1a",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "surface-tint": "#516257",
+                        "background": "#fcf9f8",
+                        "surface-dim": "#dcd9d9",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "on-primary-fixed-variant": "#3a4b40",
+                        "on-background": "#1b1c1c",
+                        "inverse-surface": "#303030",
+                        "on-tertiary-container": "#c47f2a",
+                        "on-secondary-container": "#794e26",
+                        "on-secondary": "#ffffff",
+                        "secondary-fixed": "#ffdcc1",
+                        "surface-container-high": "#eae7e7"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-edge": "40px",
+                        "section-gap": "120px",
+                        "gutter": "24px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Noto Serif"],
+                        "display-lg": ["Noto Serif"],
+                        "body-md": ["Manrope"],
+                        "body-lg": ["Manrope"],
+                        "label-caps": ["Work Sans"],
+                        "headline-lg": ["Noto Serif"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "500"}],
+                        "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .field-note {
+            background-color: #f6f3f2;
+            background-image: radial-gradient(#d1cdc7 0.5px, transparent 0.5px);
+            background-size: 10px 10px;
+        }
+
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-primary">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#FDFCFB] dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800">
+<div class="flex justify-between items-center h-20 px-8 md:px-12 max-w-screen-2xl mx-auto">
+<a class="font-serif text-2xl font-bold tracking-tighter text-[#1B2B22] dark:text-stone-100" href="home.html">Ultimate Hunting Safaris</a>
+<nav class="hidden md:flex items-center space-x-8 lg:space-x-12">
+<a class="font-serif text-lg tracking-tight text-[#1B2B22] dark:text-stone-100 border-b-2 border-[#1B2B22] dark:border-stone-100 pb-1" href="home.html">Home</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-[#1B2B22] dark:hover:text-stone-200 transition-colors" href="#">Our Services</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-[#1B2B22] dark:hover:text-stone-200 transition-colors" href="gallery.html">Photo Gallery</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-[#1B2B22] dark:hover:text-stone-200 transition-colors" href="#">About Us</a>
+<a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-[#1B2B22] dark:hover:text-stone-200 transition-colors" href="#">Contact Us</a>
+</nav>
+<div class="flex items-center gap-6">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="bg-primary-container text-white px-6 py-2.5 font-label-caps uppercase tracking-widest text-[10px] hover:bg-primary transition-all active:scale-95 duration-150 ease-in-out">
+                    Join the Hunt
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[calc(100vh-80px)] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div id="hero-slider" class="flex w-full h-full">
+<div class="min-w-full h-full relative">
+<img class="w-full h-full object-cover" data-alt="Small group of diverse professional hunters in rugged gear huddled around a paper map on a vintage 4x4 tailgate at dawn with misty mountains" src="homepage/main_section/image1.png"/>
+</div>
+<div class="min-w-full h-full relative">
+<img class="w-full h-full object-cover" src="homepage/main_section/image2.png"/>
+</div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1B2B22]/80 via-[#1B2B22]/20 to-transparent"></div>
+</div>
+<!-- Dot Navigation for Hero -->
+<div id="hero-dots" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
+<div class="relative z-10 px-8 md:px-24 pb-20 max-w-5xl">
+<span class="font-label-caps text-primary-fixed mb-4 block uppercase tracking-[0.2em]">Ultimate Hunting Safaris</span>
+<h1 class="font-display-lg text-white text-display-lg mb-8 leading-tight">The Bond of the Wild.</h1>
+<p class="font-body-lg text-stone-300 max-w-2xl mb-10 leading-relaxed">
+                    Hunting is not a solitary pursuit of the kill, but a shared journey of the soul. Here we find the strength of the pack and the wisdom of the elders.
+                </p>
+<div class="flex gap-4">
+<button class="bg-white text-primary px-8 py-4 font-label-caps flex items-center gap-3 hover:bg-primary-fixed transition-colors">
+                        EXPLORE OUR SERVICES <span class="material-symbols-outlined text-sm">north_east</span>
+</button>
+</div>
+</div>
+</section>
+<!-- The Shared Ritual -->
+<section class="py-section-gap pl-8 md:pl-margin-edge pr-8 md:pr-12 overflow-hidden">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-5 order-2 md:order-1 md:pr-12 lg:pl-[calc((100vw-1280px)/2+40px)]">
+<span class="font-label-caps text-secondary uppercase mb-4 block">Our Story</span>
+<h2 class="font-headline-lg text-headline-lg mb-6">Ultimate Hunting Safaris</h2>
+<p class="font-body-lg text-on-surface-variant mb-6">What began as a private conversation between a seasoned field guide and a master chef over a shared campfire has grown into 'Ultimate Hunting Safaris'—a community-driven collective dedicated to the art of the harvest and the soul of the meal. We believe that the hunt is only half of the story; the other half is told in the kitchen and around the table.</p>
+<div class="space-y-6"><p class="font-body-lg text-on-surface-variant">Our movement was born from the desire to reconnect the modern sportsman with the primal dignity of sourcing one's own food. By bridging the gap between professional field expertise and culinary excellence, we've created a space where hunters become artisans and every expedition ends in a celebration of the wild.</p><p class="font-body-lg text-on-surface-variant font-medium text-primary">Today, the collective serves as a sanctuary for those who seek more than a trophy. We are a brotherhood and sisterhood of the woods and the flame, committed to conservation, ethics, and the timeless ritual of the shared feast.</p></div>
+</div>
+<div class="md:col-span-7 order-1 md:order-2">
+<div class="relative aspect-[4/5] md:aspect-[16/10] overflow-hidden group">
+<div id="section2-slider" class="flex w-full h-full">
+<div class="min-w-full h-full relative">
+<img alt="Indian man hunting in the wilderness" class="absolute inset-0 w-full h-full object-cover" data-alt="A high-quality, professional photograph of an Indian man in his late 30s, a skilled hunter, in the wilderness at sunset. He is wearing rugged, earth-toned outdoor clothing, holding a professional hunting bow and arrow, looking focused and calm." src="homepage/section2/image2.jpeg"/>
+</div>
+<div class="min-w-full h-full relative">
+<img alt="Indian man hunting in the wilderness" class="absolute inset-0 w-full h-full object-cover" src="homepage/section2/image4.png"/>
+</div>
+</div>
+<!-- Dot Navigation for Section 2 -->
+<div id="section2-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expedition Camaraderie (Bento-style Grid) -->
+<section class="bg-[#1B2B22] pt-section-gap pb-0">
+<div class="pl-8 md:pl-margin-edge pr-8 md:pr-12 max-w-screen-xl mx-auto mb-16">
+<div class="text-center">
+<span class="font-label-caps text-primary-fixed uppercase mb-4 block">The Field Experience</span>
+<h2 class="font-headline-lg text-white text-headline-lg mb-4">Expedition Camaraderie</h2>
+<p class="font-body-lg text-stone-400 max-w-2xl mx-auto">In the rugged terrain of the highlands, survival and success depend on the seamless coordination of the team.</p><div class="mt-10 flex justify-center">
+<button class="bg-primary-container border border-white/20 text-white px-10 py-4 font-serif text-lg tracking-tight hover:bg-stone-800 transition-all active:scale-95 duration-150">
+        Check Out Our Services
+    </button>
+</div>
+</div>
+</div>
+<div class="w-full overflow-hidden relative group">
+<img class="w-full h-auto transition-transform duration-700 group-hover:scale-105" data-alt="High-quality, cinematic photograph of a diverse hunting team consisting of two men and one woman in rugged field gear, focused and aiming their rifles during a professional expedition in a highland wilderness." src="homepage/section3/image3.jpeg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-[#1B2B22]/60 via-transparent to-transparent flex flex-col justify-end p-8 md:p-12">
+<h3 class="font-headline-md text-white text-3xl mb-2">The Strength of the Pack</h3>
+<p class="text-stone-300 font-body-lg max-w-2xl">Seamless coordination and mutual trust define the professional hunting experience in the highlands.</p>
+</div>
+</div>
+</section>
+<!-- Our Team -->
+<section class="py-section-gap px-8 md:px-margin-edge max-w-screen-xl mx-auto">
+<div class="text-center mb-16">
+<span class="font-label-caps text-secondary uppercase mb-4 block">The Experts</span>
+<h2 class="font-headline-lg text-headline-lg mb-4">Our Team</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Meet the seasoned guides and conservationists who lead our expeditions.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden mb-6">
+<img alt="Elias Thorne" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6iXRUzWBelIM7fB_SI7y_ASW4H72rR4-tEpLouflaTr9t0YGsPVvuU1EmWRNZJhiHXjX3z2A4Bbqnac5-LTXRAAk_72Qtgxem1z4RwYLHfjIRwPfLL7DmTFumzykp8avWDnqUJCk4ZvILknysrdiWqpH4fBaLDoPZp20fHkVdUTGke6WPmrZK5aVHeIoTC7qeVVH-tFPxX3jREvcJHau_cKEamTqz9Yi93h0HX_qupJoI541Ez_PZJwdtIO7lFX4wOcYKbX3HADGw"/>
+</div>
+<h3 class="font-headline-md text-2xl mb-1">Elias Thorne</h3>
+<p class="font-label-caps text-secondary text-sm">Lead Guide</p>
+</div>
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden mb-6">
+<img alt="Arthur Ward" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVdoTtKNkTDO-vSu6kjVrw4zBy8h5TTVt-fmdfZMoQbper7XDnOGVMAPamaDa88CmmpawP6o2M_i65PIyR8-AFJC8STqmN1Q9v3eRw71_cQsyRpe5VcQgjPVJ3uKRdaI5alTZi9Jo3KNnp9dM63e3BNTRNPCGHwOWd9hSSxY-eVdf4yfw_Jn2j2aXzLwRKJzZD0Bq-r0Qft6gMRm5Tj79Ve6tPEDMYuIw1V8O2VZS1PJh1ffG6YT8rG623uJfgHYhPI_zPa9QyekD-"/>
+</div>
+<h3 class="font-headline-md text-2xl mb-1">Arthur Ward</h3>
+<p class="font-label-caps text-secondary text-sm">Conservation Specialist</p>
+</div>
+<div class="group">
+<div class="aspect-[3/4] overflow-hidden mb-6">
+<img alt="Julian Vance" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt2k15eJWEHt_qErKJVd_HVwFIIEVLv6E6_fD8aTgM1MMYmXy6icUsf3sSQUfyj89-sk93Mh7dXwItojOouNDTRCemVt-tbrSCjndJxfgz66-vP68SHUBtKcs58gB5JRFuO-GkWXx7ZJuZGE0-Lx4DWFQWvkoCB7O1YNlczXIEU-GcaOZz02CiPX3UFCEOwaGfnokEw8-uWHQkj1ZOCA6A_Rbit6nKYwU13wufjHG2grjGgQdywN4V-KHifNvJ2bPTAgWvDe2XBQLJ"/>
+</div>
+<h3 class="font-headline-md text-2xl mb-1">Julian Vance</h3>
+<p class="font-label-caps text-secondary text-sm">Expedition Leader</p>
+</div>
+</div>
+</section>
+<!-- Join CTA -->
+<section class="py-section-gap bg-surface-container-low text-center">
+<div class="px-8 max-w-3xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-8">Ready to answer the call?</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">Membership in The Collective is by invitation and shared values. Apply to join our next expedition and find your place among the hunters.</p>
+<button class="bg-primary text-white px-12 py-5 font-label-caps text-sm tracking-[0.2em] hover:bg-on-primary-container transition-all">
+                    CONNECT WITH US
+                </button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#1B2B22] dark:bg-black py-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12 px-12 max-w-screen-xl mx-auto">
+<div>
+<h3 class="font-serif text-xl text-white mb-6">Ultimate Hunting Safaris</h3>
+<p class="text-stone-400 font-sans text-xs uppercase tracking-widest max-w-xs leading-relaxed">
+                    Elevating the sporting life through editorial storytelling and professional field expertise.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col gap-4">
+<span class="text-white font-label-caps text-[10px] mb-2">EXPLORE</span>
+<a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest" href="#">Our Services</a>
+<a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest" href="gallery.html">Photo Gallery</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-white font-label-caps text-[10px] mb-2">LEGAL</span>
+<a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest" href="#">About Us</a>
+<a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest" href="#">Contact Us</a>
+</div>
+</div>
+</div>
+<div class="mt-16 px-12 max-w-screen-xl mx-auto border-t border-stone-800 pt-8 flex justify-between items-center">
+<span class="text-stone-500 font-sans text-[10px] uppercase tracking-widest">© 2026 Ultimate Hunting Safaris. All Rights Reserved.</span>
+<div class="flex gap-6">
+<a class="text-stone-500 hover:text-white" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-stone-500 hover:text-white" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+</footer>
+<script>
+    class Carousel {
+        constructor(containerId, dotContainerId, interval = 5000) {
+            this.container = document.getElementById(containerId);
+            this.dotContainer = document.getElementById(dotContainerId);
+            this.interval = interval;
+            this.currentIndex = 0;
+            this.timer = null;
+            this.totalOriginalSlides = 0;
+        }
+
+        // Option 1: Automatic detection via naming convention
+        async autoLoad(basePath, baseName, extension) {
+            if (!this.container) return;
+            this.container.innerHTML = '';
+            let count = 1;
+            let found = [];
+
+            // Probe images
+            while (count <= 10) { // Limit to 10 for performance
+                const url = `${basePath}${baseName}${count}.${extension}`;
+                const exists = await new Promise(r => {
+                    const img = new Image();
+                    img.onload = () => r(true);
+                    img.onerror = () => r(false);
+                    img.src = url;
+                });
+                if (!exists) break;
+                found.push(url);
+                count++;
+            }
+
+            if (found.length === 0) return;
+            found.forEach(url => this.addSlide(url));
+            this.init();
+        }
+
+        addSlide(url) {
+            const slide = document.createElement('div');
+            slide.className = 'min-w-full h-full relative';
+            slide.innerHTML = `<img class="w-full h-full object-cover" src="${url}"/>`;
+            this.container.appendChild(slide);
+        }
+
+        // Initialize with existing HTML content
+        init() {
+            if (!this.container) return;
+            const slides = Array.from(this.container.children);
+            if (slides.length <= 1) {
+                this.totalOriginalSlides = slides.length;
+                this.updateDots();
+                return;
+            }
+
+            this.totalOriginalSlides = slides.length;
+            const firstClone = slides[0].cloneNode(true);
+            this.container.appendChild(firstClone);
+            
+            this.updateDots();
+            this.start();
+        }
+
+        updateDots() {
+            if (!this.dotContainer) return;
+            this.dotContainer.innerHTML = '';
+            if (this.totalOriginalSlides <= 1) return;
+
+            for (let i = 0; i < this.totalOriginalSlides; i++) {
+                const dot = document.createElement('button');
+                const isActive = i === (this.currentIndex % this.totalOriginalSlides);
+                dot.className = `w-2.5 h-2.5 rounded-full transition-all cursor-pointer border border-black/10 ${isActive ? 'bg-white w-6' : 'bg-white/40 hover:bg-white'}`;
+                dot.onclick = () => this.goTo(i);
+                this.dotContainer.appendChild(dot);
+            }
+        }
+
+        goTo(index) {
+            this.currentIndex = index;
+            this.container.style.transition = 'transform 0.7s ease-in-out';
+            this.container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+            this.updateDots();
+            this.reset();
+        }
+
+        next() {
+            this.currentIndex++;
+            this.container.style.transition = 'transform 0.7s ease-in-out';
+            this.container.style.transform = `translateX(-${this.currentIndex * 100}%)`;
+
+            if (this.currentIndex === this.totalOriginalSlides) {
+                setTimeout(() => {
+                    this.container.style.transition = 'none';
+                    this.currentIndex = 0;
+                    this.container.style.transform = `translateX(0)`;
+                    this.updateDots();
+                }, 700);
+            } else {
+                this.updateDots();
+            }
+        }
+
+        start() {
+            if (this.totalOriginalSlides <= 1) return;
+            this.timer = setInterval(() => this.next(), this.interval);
+        }
+
+        reset() {
+            clearInterval(this.timer);
+            this.start();
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        // Hero: Automatic detection (image1, image2, etc.)
+        const hero = new Carousel('hero-slider', 'hero-dots', 5000);
+        hero.autoLoad('homepage/main_section/', 'image', 'png');
+
+        // Section 2: Manual (uses whatever is currently in HTML)
+        const section2 = new Carousel('section2-slider', 'section2-dots', 5000);
+        section2.init();
+    });
+</script>
+</body></html>
