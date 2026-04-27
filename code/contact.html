@@ -104,8 +104,13 @@
   <style>
     .editorial-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: 1fr;
       gap: 24px
+    }
+    @media (min-width: 768px) {
+      .editorial-grid {
+        grid-template-columns: repeat(12, 1fr);
+      }
     }
 
     .material-symbols-outlined {
@@ -116,20 +121,39 @@
       background-color: #f6f3f2;
       background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuCTCgdeicI2oWoyOXz4alrLJUHj5GjATSSIluqwqAysNaNjyDf_aY19fWsY1CEZU_d49-4EGj46xb96PZDdlX819HwZPO41gEYa4S486TorswsokMFDHik9O4GS9N4iiXnfDwuAP59fm238x6par6YcPGWpkImNMD19YgcBYvMlnkO3NslVcxSp8cuWP4VIdcmNJLHNqBsk40HzRy6rTq2Jf1PtZ5JXJmBVGc1kA_4jiiPFC6KqVsFgPgkZ7oPuL_PgFcVMRdjb18aO)
     }
+
+    /* Mobile menu transitions */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    .mobile-overlay {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease-in-out;
+    }
+    .mobile-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
   </style>
 </head>
 
 <body class="bg-background text-on-background font-body-md">
   <!-- TopAppBar -->
   <header
-    class="bg-[#F9F8F6] dark:bg-[#1B2B22] border-b border-[#D1CDC7] dark:border-[#2C3E33] docked full-width top-0 sticky z-50 flat no shadows">
-    <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+    class="bg-[#F9F8F6] dark:bg-[#1B2B22] border-b border-[#D1CDC7] dark:border-[#2C3E33] top-0 sticky z-50">
+    <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto">
       <a href="home.html"
-        class="flex items-center gap-4 font-serif text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]">
-        <img src="logo.png" alt="Logo" class="h-16 w-auto object-contain">
-        Ultimate Hunting Safaris
+        class="flex items-center gap-2 sm:gap-4 font-serif text-sm sm:text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]">
+        <img src="logo.png" alt="Logo" class="h-10 sm:h-16 w-auto object-contain">
+        <span class="hidden sm:inline">Ultimate Hunting Safaris</span>
+        <span class="sm:hidden">UHS</span>
       </a>
-      <nav class="hidden md:flex items-center gap-8 font-serif tracking-tight text-lg">
+      <nav class="hidden lg:flex items-center gap-8 font-serif tracking-tight text-lg">
         <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
           href="home.html">Home</a>
         <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
@@ -181,15 +205,46 @@
         <a class="text-[#1B2B22] dark:text-white border-b-2 border-[#1B2B22] dark:border-[#E2DED9] pb-1 transition-all duration-300"
           href="contact.html">Contact Us</a>
       </nav>
-      <a href="services.html"
-        class="bg-primary-container text-on-primary px-6 py-2 font-label-caps uppercase transition-opacity active:opacity-80">
-        Join the Hunt
-      </a>
+      <div class="flex items-center gap-3">
+        <a href="services.html"
+          class="hidden sm:inline-block bg-primary-container text-on-primary px-6 py-2 font-label-caps uppercase transition-opacity active:opacity-80">
+          Join the Hunt
+        </a>
+        <!-- Hamburger Button -->
+        <button id="hamburger-btn" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
+          <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+          <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+          <span class="block w-4 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+        </button>
+      </div>
     </div>
   </header>
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black/50 z-[60]"></div>
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#FDFCFB] z-[70] flex flex-col shadow-2xl">
+    <div class="flex justify-between items-center px-6 py-5 border-b border-stone-200">
+      <span class="font-serif text-lg font-bold uppercase tracking-widest text-[#1B2B22]">Menu</span>
+      <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center" aria-label="Close menu">
+        <svg class="w-6 h-6 text-[#1B2B22]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="flex flex-col py-4 flex-grow overflow-y-auto">
+      <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="home.html">Home</a>
+      <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="services.html">Our Services</a>
+      <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="gallery.html">Photo Gallery</a>
+      <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="about.html">About Us</a>
+      <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50" href="contact.html">Contact Us</a>
+    </div>
+    <div class="px-6 py-6 border-t border-stone-200">
+      <a href="services.html" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join the Hunt</a>
+    </div>
+  </nav>
   <main>
     <!-- Hero Section -->
-    <section class="relative h-[400px] flex items-center justify-center overflow-hidden">
+    <section class="relative h-[250px] sm:h-[350px] md:h-[400px] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0 z-0">
         <img alt="Camel caravan in the desert at sunset"
           class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]"
@@ -199,13 +254,13 @@
       </div>
       <div class="relative z-10 text-center text-white px-4">
         <span class="font-label-caps text-label-caps mb-4 block tracking-[0.3em] uppercase">Get in Touch</span>
-        <h1 class="font-display-lg text-display-lg mb-4">Contact Ultimate Hunting Safaris</h1>
-        <p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-90">For inquiries regarding expeditions, culinary
+        <h1 class="font-display-lg text-2xl sm:text-4xl md:text-display-lg mb-4">Contact Ultimate Hunting Safaris</h1>
+        <p class="font-body-lg text-sm sm:text-body-lg max-w-2xl mx-auto opacity-90">For inquiries regarding expeditions, culinary
           collaborations, or storytelling opportunities.</p>
       </div>
     </section>
     <!-- Direct Channels Section -->
-    <section class="bg-primary-container py-24 text-white">
+    <section class="bg-primary-container py-12 sm:py-24 text-white">
       <div class="max-w-screen-2xl mx-auto px-8 text-center">
         <span
           class="font-label-caps text-label-caps text-on-primary-container mb-8 block tracking-[0.3em] uppercase">Direct
@@ -242,7 +297,7 @@
     </section>
 
     <!-- Main Content Area -->
-    <section id="inquiry-form" class="max-w-screen-2xl mx-auto px-8 my-section-gap">
+    <section id="inquiry-form" class="max-w-screen-2xl mx-auto px-4 sm:px-8 my-16 sm:my-section-gap">
       <div class="editorial-grid">
         <!-- Inquiry Form (8 columns) -->
         <div class="col-span-12 lg:col-span-8">
@@ -404,6 +459,28 @@
 
     </div>
   </footer>
+  <script>
+    // Mobile Menu
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      mobileOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    mobileOverlay.addEventListener('click', closeMenu);
+  </script>
 </body>
 
 </html>

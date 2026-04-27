@@ -114,20 +114,39 @@
             background-image: radial-gradient(#d1cdc7 0.5px, transparent 0.5px);
             background-size: 10px 10px;
         }
+
+        /* Mobile menu transitions */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+        .mobile-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .mobile-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
     </style>
 </head>
 
 <body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-primary">
     <!-- TopNavBar -->
     <header
-        class="fixed top-0 left-0 right-0 z-50 bg-[#FDFCFB] dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800">
-        <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
-            <a class="flex items-center gap-4 font-serif text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]"
+        class="sticky top-0 z-50 bg-[#FDFCFB] dark:bg-stone-950 border-b border-stone-200 dark:border-stone-800">
+        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto">
+            <a class="flex items-center gap-2 sm:gap-4 font-serif text-sm sm:text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]"
                 href="home.html">
-                <img src="logo.png" alt="Logo" class="h-16 w-auto object-contain">
-                Ultimate Hunting Safaris
+                <img src="logo.png" alt="Logo" class="h-10 sm:h-16 w-auto object-contain">
+                <span class="hidden sm:inline">Ultimate Hunting Safaris</span>
+                <span class="sm:hidden">UHS</span>
             </a>
-            <nav class="hidden md:flex items-center gap-8 font-serif tracking-tight text-lg">
+            <nav class="hidden lg:flex items-center gap-8 font-serif tracking-tight text-lg">
                 <a class="font-serif text-lg tracking-tight text-[#1B2B22] dark:text-stone-100 border-b-2 border-[#1B2B22] dark:border-stone-100 pb-1"
                     href="home.html">Home</a>
                 <!-- Our Services Dropdown -->
@@ -180,19 +199,53 @@
                 <a class="font-serif text-lg tracking-tight text-stone-500 dark:text-stone-400 hover:text-[#1B2B22] dark:hover:text-stone-200 transition-colors"
                     href="contact.html">Contact Us</a>
             </nav>
-            <a href="services.html"
-                class="bg-primary-container text-on-primary px-6 py-2 font-label-caps uppercase transition-opacity active:opacity-80">
-                Join the Hunt
-            </a>
+            <div class="flex items-center gap-3">
+                <a href="services.html"
+                    class="hidden sm:inline-block bg-primary-container text-on-primary px-6 py-2 font-label-caps uppercase transition-opacity active:opacity-80">
+                    Join the Hunt
+                </a>
+                <!-- Hamburger Button -->
+                <button id="hamburger-btn" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
+                    <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+                    <span class="block w-4 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+                </button>
+            </div>
         </div>
     </header>
-    <main class="pt-[112px]">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black/50 z-[60]"></div>
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#FDFCFB] z-[70] flex flex-col shadow-2xl">
+        <div class="flex justify-between items-center px-6 py-5 border-b border-stone-200">
+            <span class="font-serif text-lg font-bold uppercase tracking-widest text-[#1B2B22]">Menu</span>
+            <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center" aria-label="Close menu">
+                <span class="material-symbols-outlined text-2xl text-[#1B2B22]">close</span>
+            </button>
+        </div>
+        <div class="flex flex-col py-4 flex-grow overflow-y-auto">
+            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50" href="home.html">Home</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="services.html">Our Services</a>
+            <div class="pl-10 flex flex-col">
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors" href="services.html#package-nz">New Zealand Package</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors" href="services.html#package-africa">African Experience</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors" href="services.html#package-namibia">Hunting in Namibia</a>
+            </div>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="gallery.html">Photo Gallery</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="about.html">About Us</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="contact.html">Contact Us</a>
+        </div>
+        <div class="px-6 py-6 border-t border-stone-200">
+            <a href="services.html" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join the Hunt</a>
+        </div>
+    </nav>
+    <main>
         <!-- Hero Section -->
-        <section class="relative min-h-[calc(100vh-80px)] flex items-end overflow-hidden">
+        <section class="relative min-h-[60vh] sm:min-h-[70vh] md:min-h-[calc(100vh-112px)] flex items-end overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <div id="hero-slider" class="flex w-full h-full">
                     <div class="min-w-full h-full relative">
-                        <img class="w-full h-full object-cover object-center"
+                        <img class="w-full h-full object-cover" style="object-position: center 25%;"
                             data-alt="Small group of diverse professional hunters in rugged gear huddled around a paper map on a vintage 4x4 tailgate at dawn with misty mountains"
                             src="homepage/main_section/image1.png" />
                     </div>
@@ -201,28 +254,28 @@
             </div>
             <!-- Dot Navigation for Hero -->
             <div id="hero-dots" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
-            <div class="relative z-10 px-8 md:px-24 pb-20 max-w-5xl">
-                <span class="font-label-caps text-primary-fixed mb-4 block uppercase tracking-[0.2em]">Ultimate Hunting
+            <div class="relative z-10 px-4 sm:px-8 md:px-24 pb-12 sm:pb-20 max-w-5xl">
+                <span class="font-label-caps text-primary-fixed mb-2 sm:mb-4 block uppercase tracking-[0.2em] text-[10px] sm:text-label-caps">Ultimate Hunting
                     Safaris</span>
-                <h1 class="font-display-lg text-white text-display-lg mb-8 leading-tight">The Bond of the Wild.</h1>
-                <p class="font-body-lg text-stone-300 max-w-2xl mb-10 leading-relaxed">
+                <h1 class="font-display-lg text-white text-3xl sm:text-5xl md:text-display-lg mb-4 sm:mb-8 leading-tight">The Bond of the Wild.</h1>
+                <p class="font-body-lg text-stone-300 max-w-2xl mb-6 sm:mb-10 leading-relaxed text-sm sm:text-body-lg">
                     Hunting is not a solitary pursuit of the kill, but a shared journey of the soul. Here we find the
                     strength of the pack and the wisdom of the elders.
                 </p>
                 <div class="flex gap-4">
                     <a href="services.html"
-                        class="bg-white text-primary px-8 py-4 font-label-caps flex items-center gap-3 hover:bg-primary-fixed transition-colors">
+                        class="bg-white text-primary px-4 sm:px-8 py-3 sm:py-4 font-label-caps flex items-center gap-2 sm:gap-3 hover:bg-primary-fixed transition-colors text-xs sm:text-label-caps">
                         EXPLORE OUR SERVICES <span class="material-symbols-outlined text-sm">north_east</span>
                     </a>
                 </div>
             </div>
         </section>
         <!-- The Shared Ritual -->
-        <section class="py-section-gap pl-8 md:pl-margin-edge pr-8 md:pr-12 overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
-                <div class="md:col-span-5 order-2 md:order-1 md:pr-12 lg:pl-[calc((100vw-1280px)/2+40px)]">
+        <section class="py-16 sm:py-section-gap pl-4 sm:pl-8 md:pl-margin-edge pr-4 sm:pr-8 md:pr-12 overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-gutter items-center">
+                <div class="md:col-span-5 order-2 md:order-1 md:pr-12 lg:pl-[max(0px,calc((100vw-1280px)/2+40px))]">
                     <span class="font-label-caps text-secondary uppercase mb-4 block">Our Story</span>
-                    <h2 class="font-headline-lg text-headline-lg mb-6">Ultimate Hunting Safaris</h2>
+                    <h2 class="font-headline-lg text-2xl sm:text-4xl md:text-headline-lg mb-6">Ultimate Hunting Safaris</h2>
                     <p class="font-body-lg text-on-surface-variant mb-6">What began as a private conversation between a
                         seasoned field guide and a master chef over a shared campfire has grown into 'Ultimate Hunting
                         Safaris'—a community-driven team dedicated to the art of the harvest and the soul of the meal.
@@ -261,11 +314,11 @@
             </div>
         </section>
         <!-- Expedition Camaraderie (Bento-style Grid) -->
-        <section class="bg-[#1B2B22] pt-section-gap pb-0">
+        <section class="bg-[#1B2B22] pt-16 sm:pt-section-gap pb-0">
             <div class="pl-8 md:pl-margin-edge pr-8 md:pr-12 max-w-screen-xl mx-auto mb-16">
                 <div class="text-center">
                     <span class="font-label-caps text-primary-fixed uppercase mb-4 block">The Field Experience</span>
-                    <h2 class="font-headline-lg text-white text-headline-lg mb-4">Expedition Camaraderie</h2>
+                    <h2 class="font-headline-lg text-white text-2xl sm:text-4xl md:text-headline-lg mb-4">Expedition Camaraderie</h2>
                     <p class="font-body-lg text-stone-400 max-w-2xl mx-auto">In the rugged terrain of the highlands,
                         survival and success depend on the seamless coordination of the team.</p>
                     <div class="mt-10 flex justify-center">
@@ -289,14 +342,14 @@
             </div>
         </section>
         <!-- Our Team -->
-        <section class="py-section-gap px-8 md:px-margin-edge max-w-screen-xl mx-auto">
-            <div class="text-center mb-16">
+        <section class="py-16 sm:py-section-gap px-4 sm:px-8 md:px-margin-edge max-w-screen-xl mx-auto">
+            <div class="text-center mb-10 sm:mb-16">
                 <span class="font-label-caps text-secondary uppercase mb-4 block">The Experts</span>
-                <h2 class="font-headline-lg text-headline-lg mb-4">Our Team</h2>
+                <h2 class="font-headline-lg text-2xl sm:text-4xl md:text-headline-lg mb-4">Our Team</h2>
                 <p class="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Meet the seasoned guides and
                     conservationists who lead our expeditions.</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 <div class="group">
                     <div class="aspect-[3/4] overflow-hidden mb-6">
                         <img alt="Elias Thorne"
@@ -327,9 +380,9 @@
             </div>
         </section>
         <!-- Join CTA -->
-        <section class="py-section-gap bg-surface-container-low text-center">
-            <div class="px-8 max-w-3xl mx-auto">
-                <h2 class="font-headline-lg text-headline-lg mb-8">Ready to answer the call?</h2>
+        <section class="py-16 sm:py-section-gap bg-surface-container-low text-center">
+            <div class="px-4 sm:px-8 max-w-3xl mx-auto">
+                <h2 class="font-headline-lg text-2xl sm:text-4xl md:text-headline-lg mb-6 sm:mb-8">Ready to answer the call?</h2>
                 <p class="font-body-lg text-on-surface-variant mb-10">Join our next expedition and find your place among
                     the hunters.</p>
                 <a href="contact.html#inquiry-form"
@@ -440,7 +493,7 @@
             addSlide(url) {
                 const slide = document.createElement('div');
                 slide.className = 'min-w-full h-full relative';
-                slide.innerHTML = `<img class="w-full h-full object-cover" src="${url}"/>`;
+                slide.innerHTML = `<img class="w-full h-full object-cover" style="object-position: center 25%;" src="${url}"/>`;
                 this.container.appendChild(slide);
             }
 
@@ -547,6 +600,27 @@
                 setInterval(updateStoryStack, 3000);
             }
         });
+
+        // Mobile Menu
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+
+        function openMenu() {
+            mobileMenu.classList.add('open');
+            mobileOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+            mobileOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', openMenu);
+        closeMenuBtn.addEventListener('click', closeMenu);
+        mobileOverlay.addEventListener('click', closeMenu);
     </script>
 </body>
 
