@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <link rel="icon" type="image/png" href="logo.png" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;family=Work+Sans:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;family=Work+Sans:wght@600&amp;display=swap"
         rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -101,36 +101,29 @@
         }
     </script>
     <style>
+        body {
+            background-color: #fcf9f8;
+            color: #1b1c1c;
+        }
+
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
 
-        .bento-grid {
+        .editorial-grid {
             display: grid;
             grid-template-columns: repeat(12, 1fr);
             gap: 24px;
         }
 
-        .field-note-card {
-            background-color: #f6f3f2;
-            border: 1px solid #D1CDC7;
-            position: relative;
-        }
-
-        .field-note-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%);
-            pointer-events: none;
+        .section-padding {
+            padding-top: 120px;
+            padding-bottom: 120px;
         }
     </style>
 </head>
 
-<body class="bg-background text-on-background font-body-md">
+<body class="font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
     <!-- TopAppBar -->
     <header
         class="bg-[#F9F8F6] dark:bg-[#1B2B22] border-b border-[#D1CDC7] dark:border-[#2C3E33] docked full-width top-0 sticky z-50 flat no shadows">
@@ -143,7 +136,7 @@
             <nav class="hidden md:flex items-center gap-8 font-serif tracking-tight text-lg">
                 <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
                     href="home.html">Home</a>
-                <a class="text-[#1B2B22] dark:text-white border-b-2 border-[#1B2B22] dark:border-[#E2DED9] pb-1 hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
+                <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
                     href="gallery.html">Photo Gallery</a>
                 <!-- Our Services Dropdown -->
                 <div class="relative group">
@@ -187,7 +180,7 @@
                         </a>
                     </div>
                 </div>
-                <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
+                <a class="text-[#1B2B22] dark:text-white border-b-2 border-[#1B2B22] dark:border-[#E2DED9] pb-1 transition-all duration-300"
                     href="about.html">About Us</a>
                 <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
                     href="contact.html">Contact Us</a>
@@ -198,107 +191,131 @@
             </a>
         </div>
     </header>
-    <main class="w-full">
-        <!-- Hero Section with Quote -->
-        <section class="max-w-screen-2xl mx-auto mt-0">
-            <div class="relative h-[400px] md:h-[500px] w-full overflow-hidden flex items-start justify-start">
-                <img class="absolute inset-0 w-full h-full object-cover" src="photo_gallery/gallery_image_main.png"
-                    alt="Hero Gallery Image" />
-                <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"></div>
-                <!-- Top-weighted gradient -->
-                <div class="relative z-10 px-12 pt-16 text-left max-w-3xl">
-                    <span
-                        class="font-label-caps text-secondary-container uppercase mb-3 block tracking-[0.3em] text-[10px] opacity-90">Field
-                        Chronicles</span>
-                    <h1
-                        class="font-serif italic text-xl md:text-2xl lg:text-3xl text-white leading-relaxed min-h-[4em]">
-                        &ldquo;<span id="typewriter"></span>
-                    </h1>
-                    <script>
-                        const quoteText = "The hunt is only half the story; the brotherhood formed in the silence of the bush is what remains.";
-                        let charIndex = 0;
-                        const target = document.getElementById("typewriter");
-
-                        function typeEffect() {
-                            if (charIndex < quoteText.length) {
-                                target.textContent += quoteText.charAt(charIndex);
-                                charIndex++;
-                                setTimeout(typeEffect, 25);
-                            } else {
-                                // Add the closing quote only at the very end
-                                target.textContent += "”";
-                            }
-                        }
-                        // Start animation when page loads
-                        window.addEventListener('load', typeEffect);
-                    </script>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative h-[819px] flex items-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img class="w-full h-full object-cover grayscale-[20%] brightness-75"
+                    data-alt="Wide cinematic shot of a misty African savanna at dawn with a lone silhouette of a majestic elephant under a sprawling acacia tree"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqACTQ8uFyaPC_aB1xXG4VwCd9chhQCTAMQoMCtX9_QB6lZyGpIRdU-ebVqL-ikXHpC9ezygAZ10ML-4-hQEn40n-xy9wcYSklCGXAAw0XvtGAes-DJWXXOR3dZS326QF6LeZjk33Ps9PeojedRTvIPSdAt6TtD7jSEYHs5Z623zSDf3UzX2YgsQOFmD6bwPCbU6wmyJJlaNO45Mo67JieDDGdLma4oGzKer91mp340zDwiPUbDTxdFSR-5LcXoG4cTw03PtBy10BT" />
+            </div>
+            <div class="relative z-10 max-w-container-max mx-auto px-margin-edge w-full">
+                <div class="max-w-2xl">
+                    <span class="font-label-caps text-on-tertiary-container mb-4 block">BORN IN THE WILD</span>
+                    <h1 class="font-display-lg text-display-lg text-white mb-6">Respect the Chase. Honor the Land.</h1>
+                    <p class="font-body-lg text-body-lg text-surface-variant max-w-xl">
+                        At the intersection of primal tradition and modern culinary excellence, we find our purpose.
+                        Hunting with Prochef is more than a pursuit; it is a sacred commitment to conservation,
+                        community, and the deep-rooted ethics of the wild harvest.
+                    </p>
                 </div>
             </div>
         </section>
-
-        <!-- Section Heading -->
-        <section class="py-20 bg-surface">
-            <div class="max-w-screen-2xl mx-auto px-8 text-center">
-                <h2 class="font-display-lg text-4xl md:text-6xl text-primary tracking-tight">
-                    Moments, Memories, Legacy.
+        <!-- Video Section -->
+        <section class="section-padding bg-surface-container-low">
+            <div class="max-w-container-max mx-auto px-margin-edge">
+                <div class="text-center mb-12">
+                    <span class="font-label-caps text-secondary mb-2 block">WATCH THE JOURNEY</span>
+                    <h2 class="font-headline-lg text-headline-lg text-primary">Experience the Field</h2>
+                </div>
+                <div class="relative max-w-5xl mx-auto group cursor-pointer">
+                    <div
+                        class="aspect-video w-full overflow-hidden rounded-sm shadow-2xl border border-outline-variant relative">
+                        <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            data-alt="Cinematic frame of a group of outdoorsmen trekking through a dense, foggy pine forest at sunrise, carrying gear and walking in single file"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUmdnCDHRHRRIl41tX3yUaNfIUvUt7_KYneywU1xEwQKNK991YMdrnktUdrouXhUisByFjrkgwg-cIKVHUaSQEAp2qXLscxrmzCMCFNJLQNazOyMLQtvjTMRJU6jPOCw_JcVi8FS8eArn2bZYbkb5GHy1Nk7OrYfNsMknHPMkocZkPzdYBTM5mJNnUndfB6CpGUO8AwMVsfcZvGUKa1M5RmdkjUF5O08T8aNkP9a0AxdRRAzru0obgsq4VyqAoX_Owl3H6yXXacb0E" />
+                        <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+                            <div
+                                class="w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 bg-[#FF0000] group-hover:bg-[#CC0000] shadow-xl">
+                                <span class="material-symbols-outlined text-white text-5xl fill-1">play_arrow</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex justify-between items-end border-b border-outline pb-4">
+                        <div>
+                            <h3 class="font-headline-md text-2xl text-primary mb-1">The Spirit of the Harvest</h3>
+                            <p class="font-body-md text-on-surface-variant">A documentary short on the ethics and
+                                artistry of Hunting with Prochef.</p>
+                        </div>
+                        <span class="font-label-caps text-secondary">04:22 / HD</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Narrative Section -->
+        <section class="section-padding bg-surface">
+            <div class="max-w-container-max mx-auto px-margin-edge">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+                    <div class="lg:col-span-8 lg:col-start-3">
+                        <div class="space-y-12">
+                            <div class="text-center">
+                                <span class="font-label-caps text-secondary mb-4 block">OUR PHILOSOPHY</span>
+                                <h2 class="font-headline-lg text-headline-lg text-primary mb-8">The Ethos of Ultimate
+                                    Hunting Safaris</h2>
+                            </div>
+                            <div
+                                class="font-serif text-lg leading-relaxed text-on-surface-variant max-w-3xl mx-auto space-y-8">
+                                <div class="space-y-6">
+                                    <p>
+                                        Hunting with Prochef was founded on the belief that the hunt is a fundamental
+                                        bridge between humanity and the natural world. In an age of disconnection,
+                                        Ultimate Hunting Safaris seeks to restore the ancient bond of communal
+                                        hunting—where the weight of the journey is shared and the rewards of the harvest
+                                        are celebrated together. This is not a sport of ego, but a practice of humility.
+                                        We move through the land as guests, conscious of every footprint and the legacy
+                                        we leave behind for those who will follow.
+                                    </p>
+                                    <p>
+                                        Our stewardship extends far beyond the duration of the expedition. We believe
+                                        that to take from the land is to enter into a contract with it. Every member of
+                                        our community is a guardian of the wilderness, dedicated to the protection of
+                                        habitats and the flourishing of diverse wildlife. We honor the majestic elk, the
+                                        elusive mountain goat, and the sprawling savanna dwellers with equal reverence,
+                                        recognizing that their health is a reflection of our own.
+                                    </p>
+                                </div>
+                                <div class="space-y-6">
+                                    <p>
+                                        The "Prochef" in our name signifies a deep commitment to the culinary conclusion
+                                        of the hunt. We believe that honoring the animal means utilizing every part of
+                                        the harvest with technical mastery and creative spirit. In the field kitchens
+                                        and around the campfire, our chefs transform the day's toil into a narrative of
+                                        flavor, connecting our palates to the very soil we traversed. It is here, in the
+                                        glow of the embers, where the true fellowship of our team is forged.
+                                    </p>
+                                    <p>
+                                        Whether tracking through the misty pine forests or standing silent in the golden
+                                        heat of the plains, we are united by a shared respect for the rhythm of nature.
+                                        We invite those who understand that the most profound experiences are found in
+                                        the quiet tension of the stalk and the exuberant warmth of the communal table.
+                                        This is our creed: to hunt with purpose, to cook with soul, and to live in
+                                        harmony with the wild that sustains us all.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to Action -->
+        <section class="section-padding border-t border-outline-variant">
+            <div class="max-w-container-max mx-auto px-margin-edge text-center">
+                <h2 class="font-display-lg text-headline-lg text-primary mb-8">Ready to Join Ultimate Hunting Safaris?
                 </h2>
-                <div class="mt-8 w-24 h-1 bg-secondary mx-auto opacity-30"></div>
+                <div class="flex flex-col md:flex-row justify-center gap-6">
+                    <button
+                        class="bg-primary text-white px-12 py-4 font-label-caps uppercase tracking-widest hover:bg-primary-container transition-colors flex items-center justify-center gap-2">
+                        View Expeditions
+                        <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </button>
+                    <button
+                        class="border border-secondary text-secondary px-12 py-4 font-label-caps uppercase tracking-widest hover:bg-secondary hover:text-white transition-all duration-300">
+                        Read the Journal
+                    </button>
+                </div>
             </div>
         </section>
-
-        <div class="max-w-screen-2xl mx-auto px-8 pb-20">
-            <!-- Cinematic Bento Grid -->
-            <section class="bento-grid mb-12">
-                <!-- Large Feature: Elephant -->
-                <div class="col-span-12 md:col-span-8 h-[600px] relative group overflow-hidden">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="photo_gallery/gallery_image1.png" />
-                </div>
-                <!-- Field Note: Community Image -->
-                <div class="col-span-12 md:col-span-4 h-full relative group overflow-hidden">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="photo_gallery/gallery_image2.png" />
-                </div>
-                <!-- Team Tracking -->
-                <div class="col-span-12 md:col-span-4 h-[400px] overflow-hidden group">
-                    <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
-                        src="photo_gallery/gallery_image3.jpeg" />
-                    <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
-                        <span class="font-label-caps text-secondary text-[10px] uppercase">The Pursuit</span>
-                        <p class="font-body-md font-medium">Tracking the Trail</p>
-                    </div>
-                </div>
-                <!-- Rustic Barbecue -->
-                <div class="col-span-12 md:col-span-4 h-[400px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        src="photo_gallery/gallery_image4.jpeg" />
-                    <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
-                        <span class="font-label-caps text-secondary text-[10px] uppercase">Campfire Feast</span>
-                        <p class="font-body-md font-medium">Rustic Barbecue</p>
-                    </div>
-                </div>
-                <!-- Deer -->
-                <div class="col-span-12 md:col-span-4 h-[400px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                        src="photo_gallery/gallery_image5.jpeg" />
-                    <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
-                        <span class="font-label-caps text-secondary text-[10px] uppercase">Woodland Spirits</span>
-                        <p class="font-body-md font-medium">The High Ground</p>
-                    </div>
-                </div>
-
-                <!-- Shared Adventure -->
-                <div class="col-span-12 md:col-span-6 h-[450px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="photo_gallery/gallery_image6.jpeg" />
-                </div>
-                <!-- Campfire Ritual -->
-                <div class="col-span-12 md:col-span-6 h-[450px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        src="photo_gallery/gallery_image7.jpeg" />
-                </div>
-            </section>
-
     </main>
     <!-- Footer -->
     <footer class="bg-[#1B2B22] dark:bg-black py-16 relative overflow-hidden">
@@ -308,7 +325,7 @@
         </div>
 
         <div
-            class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto_auto] items-start gap-12 md:gap-24 px-12 max-w-screen-xl mx-auto">
+            class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-12 md:gap-24 px-12 max-w-screen-xl mx-auto">
             <div>
                 <h3 class="font-serif text-xl text-white mb-6">Ultimate Hunting Safaris</h3>
                 <p class="text-stone-400 font-sans text-xs uppercase tracking-widest max-w-xs leading-relaxed">
@@ -317,7 +334,7 @@
             </div>
 
             <div class="flex flex-col gap-4">
-                <span class="text-white font-label-caps text-[10px]">EXPLORE</span>
+                <span class="text-white font-label-caps text-[10px] mb-2">EXPLORE</span>
                 <a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest"
                     href="home.html">Home</a>
                 <a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest"
