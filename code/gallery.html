@@ -145,11 +145,30 @@
         .mobile-overlay {
             opacity: 0;
             pointer-events: none;
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease;
         }
         .mobile-overlay.open {
             opacity: 1;
             pointer-events: auto;
+        }
+        
+        /* Lightbox Styles */
+        #lightbox {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            backdrop-filter: blur(8px);
+        }
+        #lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #lightbox-img {
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #lightbox.open #lightbox-img {
+            transform: scale(1);
         }
     </style>
 </head>
@@ -303,57 +322,77 @@
         </section>
 
         <div class="max-w-screen-2xl mx-auto px-4 sm:px-8 pb-20">
-            <!-- Cinematic Bento Grid -->
-            <section class="bento-grid mb-12">
-                <!-- Large Feature: Elephant -->
-                <div class="col-span-12 md:col-span-8 h-[250px] sm:h-[400px] md:h-[600px] relative group overflow-hidden">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="photo_gallery/gallery_image1.png" />
+            <!-- Smart Bento Grid (Optimized for Aspect Ratios) -->
+            <section class="bento-grid grid grid-cols-12 gap-6 mb-12">
+                <!-- Feature Row: Large Landscape & Tall Portrait -->
+                <div class="col-span-12 md:col-span-8 h-[300px] sm:h-[450px] md:h-[600px] relative group overflow-hidden">
+                    <img class="w-full h-full object-cover object-[center_35%] transition-transform duration-700 group-hover:scale-105"
+                        src="photo_gallery/gallery_image9.jpeg" />
                 </div>
-                <!-- Field Note: Community Image -->
-                <div class="col-span-12 md:col-span-4 h-[250px] sm:h-[350px] md:h-full relative group overflow-hidden">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                <div class="col-span-12 md:col-span-4 h-[300px] sm:h-[450px] md:h-[600px] relative group overflow-hidden">
+                    <img class="w-full h-full object-cover object-[25%_center] transition-transform duration-700 group-hover:scale-105"
                         src="photo_gallery/gallery_image2.png" />
                 </div>
-                <!-- Team Tracking -->
-                <div class="col-span-12 md:col-span-4 h-[250px] sm:h-[300px] md:h-[400px] overflow-hidden group">
+
+                <!-- Action Row: Four Square-ish Action Shots -->
+                <div class="col-span-12 md:col-span-3 h-[250px] md:h-[350px] overflow-hidden group">
                     <img class="w-full h-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
                         src="photo_gallery/gallery_image3.jpeg" />
                     <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
                         <span class="font-label-caps text-secondary text-[10px] uppercase">The Pursuit</span>
-                        <p class="font-body-md font-medium">Tracking the Trail</p>
+                        <p class="font-body-md font-medium">Tracking</p>
                     </div>
                 </div>
-                <!-- Rustic Barbecue -->
-                <div class="col-span-12 md:col-span-4 h-[250px] sm:h-[300px] md:h-[400px] overflow-hidden group">
+                <div class="col-span-12 md:col-span-3 h-[250px] md:h-[350px] overflow-hidden group">
                     <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         src="photo_gallery/gallery_image4.jpeg" />
                     <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
-                        <span class="font-label-caps text-secondary text-[10px] uppercase">Campfire Feast</span>
+                        <span class="font-label-caps text-secondary text-[10px] uppercase">Campfire</span>
                         <p class="font-body-md font-medium">Rustic Barbecue</p>
                     </div>
                 </div>
-                <!-- Deer -->
-                <div class="col-span-12 md:col-span-4 h-[250px] sm:h-[300px] md:h-[400px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                <div class="col-span-12 md:col-span-3 h-[250px] md:h-[350px] overflow-hidden group">
+                    <img class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                         src="photo_gallery/gallery_image5.jpeg" />
                     <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
-                        <span class="font-label-caps text-secondary text-[10px] uppercase">Woodland Spirits</span>
-                        <p class="font-body-md font-medium">The High Ground</p>
+                        <span class="font-label-caps text-secondary text-[10px] uppercase">Wilderness</span>
+                        <p class="font-body-md font-medium">High Ground</p>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-3 h-[250px] md:h-[350px] overflow-hidden group">
+                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        src="photo_gallery/gallery_image8.jpeg" />
+                    <div class="p-4 bg-surface-container-low border-x border-b border-outline-variant">
+                        <span class="font-label-caps text-secondary text-[10px] uppercase">Expedition</span>
+                        <p class="font-body-md font-medium">The Field</p>
                     </div>
                 </div>
 
-                <!-- Shared Adventure -->
-                <div class="col-span-12 md:col-span-6 h-[250px] sm:h-[350px] md:h-[450px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                <!-- Wide Cinematic Row -->
+                <div class="col-span-12 md:col-span-6 h-[250px] md:h-[450px] overflow-hidden group">
+                    <img class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                         src="photo_gallery/gallery_image6.jpeg" />
                 </div>
-                <!-- Campfire Ritual -->
-                <div class="col-span-12 md:col-span-6 h-[250px] sm:h-[350px] md:h-[450px] overflow-hidden group">
-                    <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                <div class="col-span-12 md:col-span-6 h-[250px] md:h-[450px] overflow-hidden group">
+                    <img class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                         src="photo_gallery/gallery_image7.jpeg" />
                 </div>
+                
+                <!-- Bottom Row: Balanced Triptych -->
+                <div class="col-span-12 md:col-span-4 h-[250px] md:h-[400px] overflow-hidden group">
+                    <img class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                        src="photo_gallery/gallery_image10.jpeg" />
+                </div>
+                <div class="col-span-12 md:col-span-4 h-[250px] md:h-[400px] overflow-hidden group">
+                    <img class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                        src="photo_gallery/gallery_image11.jpeg" />
+                </div>
+                <div class="col-span-12 md:col-span-4 h-[250px] md:h-[400px] overflow-hidden group">
+                    <img class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+                        src="photo_gallery/gallery_image1.png" />
+                </div>
             </section>
+        </div>
 
     </main>
     <!-- Footer -->
@@ -417,6 +456,16 @@
 
         </div>
     </footer>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 sm:p-8">
+        <button id="lightbox-close" class="absolute top-6 right-6 sm:top-8 sm:right-8 text-white/70 hover:text-white transition-colors z-[110] p-2">
+            <span class="material-symbols-outlined text-4xl">close</span>
+        </button>
+        <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain shadow-2xl" src="" alt="Expanded View">
+        <div id="lightbox-caption" class="text-white mt-6 font-label-caps uppercase tracking-[0.2em] text-sm text-center max-w-2xl opacity-80"></div>
+    </div>
+
     <script>
         // Mobile Menu
         const hamburgerBtn = document.getElementById('hamburger-btn');
@@ -438,6 +487,63 @@
         hamburgerBtn.addEventListener('click', openMenu);
         closeMenuBtn.addEventListener('click', closeMenu);
         mobileOverlay.addEventListener('click', closeMenu);
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        
+        // Make all gallery items clickable
+        const galleryItems = document.querySelectorAll('.bento-grid > div');
+        galleryItems.forEach(item => {
+            // Add pointer cursor to indicate clickability
+            item.classList.add('cursor-pointer');
+            
+            item.addEventListener('click', () => {
+                const img = item.querySelector('img');
+                if (!img) return;
+
+                // Set caption to specific text as requested
+                const captionText = 'Ultimate Hunting Safaris Expedition';
+
+                // Set content and open lightbox
+                lightboxImg.src = img.src;
+                lightboxCaption.innerText = captionText;
+                lightbox.classList.add('open');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            });
+        });
+
+        // Close Lightbox functions
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+            
+            // Delay clearing the image so it doesn't vanish before the fade-out completes
+            setTimeout(() => {
+                if(!lightbox.classList.contains('open')) {
+                    lightboxImg.src = '';
+                }
+            }, 400);
+        }
+
+        // Close on clicking the X
+        lightboxClose.addEventListener('click', closeLightbox);
+        
+        // Close on clicking the background (outside the image)
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on pressing the Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+                closeLightbox();
+            }
+        });
     </script>
 </body>
 
