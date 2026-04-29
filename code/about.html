@@ -160,10 +160,9 @@
             <a href="index.html"
                 class="flex items-center gap-2 sm:gap-4 font-serif text-sm sm:text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]">
                 <img src="logo.png" alt="Logo" class="h-10 sm:h-16 w-auto object-contain">
-                <span class="hidden sm:inline">Ultimate Hunting Safaris</span>
-                <span class="sm:hidden">UHS</span>
+                <span>Ultimate Hunting Safaris</span>
             </a>
-            <nav class="hidden lg:flex items-center gap-8 font-serif tracking-tight text-lg">
+            <nav class="hidden xl:flex items-center gap-8 font-serif tracking-tight text-lg">
                 <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
                     href="index.html">Home</a>
                 <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
@@ -221,7 +220,7 @@
                     Join the Hunt
                 </a>
                 <!-- Hamburger Button -->
-                <button id="hamburger-btn" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
+                <button id="hamburger-btn" class="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
                     <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
                     <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
                     <span class="block w-4 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
@@ -326,6 +325,31 @@
 
     </main>
     <!-- Footer -->
+    <!-- Bottom Navigation Bar (Mobile/Tablet) -->
+    <nav
+        class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center py-3 bg-[#FCFAF7] dark:bg-[#1B2B22] border-t border-[#D1CDC7] dark:border-[#2D3A32]">
+        <a class="flex flex-col items-center justify-center text-[#7C7874] dark:text-[#A19E9A] hover:bg-[#F2EFE9] dark:hover:bg-[#2D3A32] rounded p-2 transition-colors w-16"
+            href="index.html">
+            <span class="material-symbols-outlined mb-1">landscape</span>
+            <span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Home</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#7C7874] dark:text-[#A19E9A] hover:bg-[#F2EFE9] dark:hover:bg-[#2D3A32] rounded p-2 transition-colors w-16"
+            href="services.html">
+            <span class="material-symbols-outlined mb-1">confirmation_number</span>
+            <span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Packages</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#7C7874] dark:text-[#A19E9A] hover:bg-[#F2EFE9] dark:hover:bg-[#2D3A32] rounded p-2 transition-colors w-16"
+            href="gallery.html">
+            <span class="material-symbols-outlined mb-1">photo_library</span>
+            <span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Gallery</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-[#7C7874] dark:text-[#A19E9A] hover:bg-[#F2EFE9] dark:hover:bg-[#2D3A32] rounded p-2 transition-colors w-16"
+            href="contact.html">
+            <span class="material-symbols-outlined mb-1">mail</span>
+            <span class="font-sans text-[10px] font-medium uppercase tracking-tighter">Contact</span>
+        </a>
+    </nav>
+
     <footer class="bg-[#1B2B22] dark:bg-black py-16 relative overflow-hidden">
         <!-- Faded Background Watermark -->
         <div class="absolute inset-0 flex justify-center items-center pointer-events-none select-none opacity-10">
@@ -333,15 +357,15 @@
         </div>
 
         <div
-            class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto_auto] gap-12 md:gap-24 px-12 max-w-screen-xl mx-auto">
-            <div>
+            class="relative z-10 grid grid-cols-2 md:grid-cols-[1fr_auto_auto] items-start gap-y-12 gap-x-6 md:gap-24 px-8 sm:px-12 max-w-screen-xl mx-auto">
+            <div class="col-span-2 md:col-span-1">
                 <h3 class="font-serif text-xl text-white mb-6">Ultimate Hunting Safaris</h3>
                 <p class="text-stone-400 font-sans text-xs uppercase tracking-widest max-w-xs leading-relaxed">
                     Elevating the sporting life through editorial storytelling and professional field expertise.
                 </p>
             </div>
 
-            <div class="flex flex-col gap-4">
+            <div class="col-span-1 flex flex-col gap-4">
                 <span class="text-white font-label-caps text-[10px] mb-2">EXPLORE</span>
                 <a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest"
                     href="index.html">Home</a>
@@ -355,7 +379,7 @@
                     href="contact.html">Contact Us</a>
             </div>
 
-            <div class="flex flex-col gap-6 md:items-start md:ml-auto">
+            <div class="col-span-1 flex flex-col gap-4 items-start ml-auto md:items-start md:ml-auto">
                 <span class="text-white font-label-caps text-[10px] mb-2">FOLLOW US</span>
                 <div class="space-y-4 flex flex-col items-start">
                     <a class="text-stone-400 hover:text-white transition-all flex items-center gap-3 font-sans text-xs uppercase tracking-widest group"

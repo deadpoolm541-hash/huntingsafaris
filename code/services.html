@@ -110,19 +110,23 @@
         .texture-bg {
             background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.05"/></svg>');
         }
+
         /* Mobile menu transitions */
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
         }
+
         .mobile-menu.open {
             transform: translateX(0);
         }
+
         .mobile-overlay {
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease-in-out;
         }
+
         .mobile-overlay.open {
             opacity: 1;
             pointer-events: auto;
@@ -132,16 +136,14 @@
 
 <body class="bg-background text-on-background font-body-md antialiased min-h-screen flex flex-col">
     <!-- TopAppBar -->
-    <header
-        class="bg-[#F9F8F6] dark:bg-[#1B2B22] border-b border-[#D1CDC7] dark:border-[#2C3E33] top-0 sticky z-50">
+    <header class="bg-[#F9F8F6] dark:bg-[#1B2B22] border-b border-[#D1CDC7] dark:border-[#2C3E33] top-0 sticky z-50">
         <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto">
             <a href="index.html"
                 class="flex items-center gap-2 sm:gap-4 font-serif text-sm sm:text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]">
                 <img src="logo.png" alt="Logo" class="h-10 sm:h-16 w-auto object-contain">
-                <span class="hidden sm:inline">Ultimate Hunting Safaris</span>
-                <span class="sm:hidden">UHS</span>
+                <span>Ultimate Hunting Safaris</span>
             </a>
-            <nav class="hidden lg:flex items-center gap-8 font-serif tracking-tight text-lg">
+            <nav class="hidden xl:flex items-center gap-8 font-serif tracking-tight text-lg">
                 <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
                     href="index.html">Home</a>
                 <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
@@ -196,7 +198,8 @@
             </nav>
             <div class="flex items-center gap-3">
                 <!-- Hamburger Button -->
-                <button id="hamburger-btn" class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
+                <button id="hamburger-btn" class="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+                    aria-label="Open menu">
                     <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
                     <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
                     <span class="block w-4 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
@@ -207,49 +210,67 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black/50 z-[60]"></div>
     <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#FDFCFB] z-[70] flex flex-col shadow-2xl">
+    <nav id="mobile-menu"
+        class="mobile-menu fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#FDFCFB] z-[70] flex flex-col shadow-2xl">
         <div class="flex justify-between items-center px-6 py-5 border-b border-stone-200">
             <span class="font-serif text-lg font-bold uppercase tracking-widest text-[#1B2B22]">Menu</span>
             <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center" aria-label="Close menu">
-                <svg class="w-6 h-6 text-[#1B2B22]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="w-6 h-6 text-[#1B2B22]" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
         <div class="flex flex-col py-4 flex-grow overflow-y-auto">
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="index.html">Home</a>
-            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50" href="services.html">Our Services</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+                href="index.html">Home</a>
+            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50"
+                href="services.html">Our Services</a>
             <div class="pl-10 flex flex-col">
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors" href="#package-nz">New Zealand Package</a>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors" href="#package-africa">African Experience</a>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors" href="#package-namibia">Hunting in Namibia</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
+                    href="#package-nz">New Zealand Package</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
+                    href="#package-africa">African Experience</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
+                    href="#package-namibia">Hunting in Namibia</a>
             </div>
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="gallery.html">Photo Gallery</a>
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="about.html">About Us</a>
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="contact.html">Contact Us</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+                href="gallery.html">Photo Gallery</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+                href="about.html">About Us</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+                href="contact.html">Contact Us</a>
         </div>
         <div class="px-6 py-6 border-t border-stone-200">
-            <a href="contact.html" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Contact Us</a>
+            <a href="contact.html"
+                class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Contact
+                Us</a>
         </div>
     </nav>
     <!-- Main Content Canvas -->
     <main class="flex-grow">
         <!-- Hero Section -->
         <section
-            class="relative w-full h-[300px] sm:h-[400px] md:h-[600px] flex items-end justify-center bg-surface-container-high overflow-hidden pb-0">
+            class="relative w-full flex items-end justify-center bg-stone-900 overflow-hidden pb-0">
+            <!-- Blurred Placeholder -->
+            <img src="hunting_packages_our_services/services_image1_blur.webp" 
+                 class="absolute inset-0 w-full h-full object-cover blur-xl scale-110 " aria-hidden="true" />
+            <!-- High-res Image -->
             <img alt="Hunting Packages"
-                class="absolute inset-0 w-full h-full object-cover object-center opacity-80 mix-blend-multiply"
-                src="hunting_packages_our_services/services_image1.png" />
+                class="relative w-full h-auto opacity-0 transition-opacity duration-1000"
+                src="hunting_packages_our_services/services_image1.webp" 
+                onload="this.classList.remove('opacity-0')" />
             <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/30 to-transparent"></div>
-            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+            <div class="absolute inset-0 z-10 text-center px-4 max-w-4xl mx-auto hidden md:flex flex-col items-center justify-end pb-2">
                 <span
                     class="font-label-caps text-label-caps text-secondary-fixed mb-4 uppercase tracking-widest block">Guided
                     Experiences</span>
-                <h1 class="font-display-lg text-3xl sm:text-5xl md:text-display-lg text-on-primary mb-4 sm:mb-6 drop-shadow-md">Hunting Packages</h1>
+                <h1
+                    class="font-display-lg text-3xl sm:text-5xl md:text-display-lg text-on-primary mb-4 sm:mb-6 drop-shadow-md">
+                    Hunting Packages</h1>
                 <p class="font-body-lg text-body-lg text-surface-container-low max-w-2xl mx-auto mb-10 drop-shadow">
                     Immerse yourself in the primal elegance of the wild. Tailored expeditions for every skill level,
                     guided by experts who respect the land and the craft.</p>
-
             </div>
         </section>
 
@@ -257,7 +278,8 @@
         <section class="max-w-screen-2xl mx-auto px-8 mt-4">
             <div class="text-center mb-12">
                 <span class="font-label-caps text-secondary mb-4 block tracking-[0.3em] uppercase">The Selection</span>
-                <h2 class="font-display-lg text-3xl sm:text-5xl md:text-display-lg text-primary">Curated Expeditions</h2>
+                <h2 class="font-display-lg text-3xl sm:text-5xl md:text-display-lg text-primary">Curated Expeditions
+                </h2>
                 <div class="w-24 h-px bg-outline mx-auto mt-6"></div>
             </div>
 
@@ -268,7 +290,8 @@
                     <div class="text-center space-y-6">
                         <span class="font-label-caps text-secondary uppercase tracking-[0.4em] block">4-5 Days Guided
                             Experience</span>
-                        <h2 class="font-display-lg text-2xl sm:text-4xl md:text-display-lg">New Zealand Beginners Hunting Package</h2>
+                        <h2 class="font-display-lg text-2xl sm:text-4xl md:text-display-lg">New Zealand Beginners
+                            Hunting Package</h2>
                         <div class="w-24 h-px bg-secondary mx-auto"></div>
                         <div class="max-w-3xl mx-auto space-y-4">
                             <h3 class="font-display-md text-2xl text-primary italic">New to hunting?</h3>
@@ -410,7 +433,8 @@
                     <div class="text-center space-y-6">
                         <span class="font-label-caps text-secondary uppercase tracking-[0.4em] block">African
                             Exclusive</span>
-                        <h2 class="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white">Ultimate African Hunting Experience</h2>
+                        <h2 class="font-display-lg text-2xl sm:text-4xl md:text-display-lg text-white">Ultimate African
+                            Hunting Experience</h2>
                         <div class="w-24 h-px bg-secondary mx-auto"></div>
                         <p class="font-body-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
                             Step into Africa's wild beauty with fully guided, beginner-friendly hunting package.
@@ -598,8 +622,7 @@
                                 </li>
                                 <li class="flex items-start gap-4 text-on-surface-variant/60 italic text-sm">
                                     <span class="material-symbols-outlined text-xl opacity-40">info</span> All other
-                                    trophy and management animals are available and will be charged based on my
-                                    advertised price list on my website.
+                                    trophy and management animals will be charged dynamically.
                                 </li>
                             </ul>
                         </div>
@@ -655,7 +678,7 @@
     </main>
     <!-- BottomNavBar (Mobile Only) -->
     <nav
-        class="lg:hidden fixed bottom-0 w-full z-50 flex justify-around items-center py-3 bg-[#FCFAF7] dark:bg-[#1B2B22] border-t border-[#D1CDC7] dark:border-[#2D3A32]">
+        class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center py-3 bg-[#FCFAF7] dark:bg-[#1B2B22] border-t border-[#D1CDC7] dark:border-[#2D3A32]">
         <a class="flex flex-col items-center justify-center text-[#7C7874] dark:text-[#A19E9A] hover:bg-[#F2EFE9] dark:hover:bg-[#2D3A32] rounded p-2 transition-colors w-16"
             href="index.html">
             <span class="material-symbols-outlined mb-1">landscape</span>
@@ -686,15 +709,15 @@
         </div>
 
         <div
-            class="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_auto_auto] items-start gap-12 md:gap-24 px-12 max-w-screen-xl mx-auto">
-            <div>
+            class="relative z-10 grid grid-cols-2 md:grid-cols-[1fr_auto_auto] items-start gap-y-12 gap-x-6 md:gap-24 px-8 sm:px-12 max-w-screen-xl mx-auto">
+            <div class="col-span-2 md:col-span-1">
                 <h3 class="font-serif text-xl text-white mb-6">Ultimate Hunting Safaris</h3>
                 <p class="text-stone-400 font-sans text-xs uppercase tracking-widest max-w-xs leading-relaxed">
                     Elevating the sporting life through editorial storytelling and professional field expertise.
                 </p>
             </div>
 
-            <div class="flex flex-col gap-4">
+            <div class="col-span-1 flex flex-col gap-4">
                 <span class="text-white font-label-caps text-[10px]">EXPLORE</span>
                 <a class="text-stone-400 hover:text-white transition-colors font-sans text-xs uppercase tracking-widest"
                     href="index.html">Home</a>
@@ -708,7 +731,7 @@
                     href="contact.html">Contact Us</a>
             </div>
 
-            <div class="flex flex-col gap-4 md:items-start md:ml-auto">
+            <div class="col-span-1 flex flex-col gap-4 items-start ml-auto md:items-start md:ml-auto">
                 <span class="text-white font-label-caps text-[10px]">FOLLOW US</span>
                 <div class="space-y-4 flex flex-col items-start">
                     <a class="text-stone-400 hover:text-white transition-all flex items-center gap-3 font-sans text-xs uppercase tracking-widest group"
