@@ -151,6 +151,15 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Scrolled Header State */
+        header.scrolled {
+            background-color: rgba(0, 0, 0, 0.2) !important;
+            backdrop-filter: blur(8px);
+            padding-top: 0.5rem !important;
+            padding-bottom: 0.5rem !important;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
         
         /* Lightbox Styles */
         #lightbox {
@@ -175,22 +184,23 @@
 
 <body class="bg-background text-on-background font-body-md">
     <!-- TopAppBar -->
-    <header
-        class="bg-[#F9F8F6] dark:bg-[#1B2B22] border-b border-[#D1CDC7] dark:border-[#2C3E33] top-0 sticky z-50">
-        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto">
+    <header class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
+        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto transition-all duration-300" id="header-container">
             <a href="index.html"
-                class="flex items-center gap-2 sm:gap-4 font-serif text-sm sm:text-2xl font-bold uppercase tracking-widest text-[#1B2B22] dark:text-[#E2DED9]">
-                <img src="logo.png" alt="Logo" class="h-10 sm:h-16 w-auto object-contain">
-                <span>Ultimate Hunting Safaris</span>
+                class="flex items-center gap-3 sm:gap-6">
+                <img src="logo.png" alt="Logo" class="h-10 sm:h-14 w-auto object-contain">
+                <span class="font-label-caps text-white uppercase tracking-[0.2em] text-[10px] sm:text-sm whitespace-nowrap hidden lg:block">
+                    Ultimate Hunting Safaris
+                </span>
             </a>
             <nav class="hidden xl:flex items-center gap-8 font-serif tracking-tight text-lg">
-                <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
+                <a class="text-white/70 hover:text-white transition-all duration-300"
                     href="index.html">Home</a>
-                <a class="text-[#1B2B22] dark:text-white border-b-2 border-[#1B2B22] dark:border-[#E2DED9] pb-1 hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
+                <a class="text-white border-b-2 border-white pb-1 transition-all duration-300"
                     href="gallery.html">Photo Gallery</a>
                 <!-- Our Services Dropdown -->
                 <div class="relative group">
-                    <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300 flex items-center gap-1"
+                    <a class="text-white/70 hover:text-white transition-all duration-300 flex items-center gap-1"
                         href="services.html">
                         Our Services
                         <svg class="w-3 h-3 mt-0.5 opacity-60 group-hover:opacity-100 transition-all group-hover:rotate-180 duration-200"
@@ -234,21 +244,21 @@
                         </div>
                     </div>
                 </div>
-                <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
+                <a class="text-white/70 hover:text-white transition-all duration-300"
                     href="about.html">About Us</a>
-                <a class="text-[#5C5753] dark:text-[#A09B95] hover:text-[#1B2B22] dark:hover:text-white transition-all duration-300"
+                <a class="text-white/70 hover:text-white transition-all duration-300"
                     href="contact.html">Contact Us</a>
             </nav>
             <div class="flex items-center gap-3">
-                <a href="services.html"
+                <a href="contact.html#inquiry-form"
                     class="hidden sm:inline-block bg-primary-container text-on-primary px-6 py-2 font-label-caps uppercase transition-opacity active:opacity-80">
                     Join the Hunt
                 </a>
                 <!-- Hamburger Button -->
                 <button id="hamburger-btn" class="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
-                    <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
-                    <span class="block w-6 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
-                    <span class="block w-4 h-0.5 bg-[#1B2B22] transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="block w-4 h-0.5 bg-white transition-all duration-300"></span>
                 </button>
             </div>
         </div>
@@ -267,6 +277,7 @@
         </div>
         <div class="flex flex-col py-4 flex-grow overflow-y-auto">
             <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="index.html">Home</a>
+            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50" href="gallery.html">Photo Gallery</a>
             <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="services.html">Our Services</a>
             <div class="pl-10 flex flex-col"><div class="pb-2"><span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Beginner Packages</span></div>
                 <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
@@ -279,12 +290,11 @@
                     <span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Dangerous Game Hunting</span>
                 </div>
             </div>
-            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50" href="gallery.html">Photo Gallery</a>
             <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="about.html">About Us</a>
             <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="contact.html">Contact Us</a>
         </div>
         <div class="px-6 py-6 border-t border-stone-200">
-            <a href="services.html" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join the Hunt</a>
+            <a href="contact.html#inquiry-form" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join the Hunt</a>
         </div>
     </nav>
     <main class="w-full">
@@ -515,6 +525,31 @@
         hamburgerBtn.addEventListener('click', openMenu);
         closeMenuBtn.addEventListener('click', closeMenu);
         mobileOverlay.addEventListener('click', closeMenu);
+
+        // Header Scroll Effect
+        const header = document.querySelector('header');
+        const headerContainer = document.getElementById('header-container');
+        const joinBtn = header.querySelector('a[href*="#inquiry-form"]');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+                headerContainer.classList.remove('py-3', 'sm:py-6');
+                headerContainer.classList.add('py-2', 'sm:py-3');
+                if (joinBtn) {
+                    joinBtn.classList.remove('bg-primary-container', 'text-on-primary');
+                    joinBtn.classList.add('bg-white', 'text-[#1B2B22]');
+                }
+            } else {
+                header.classList.remove('scrolled');
+                headerContainer.classList.remove('py-2', 'sm:py-3');
+                headerContainer.classList.add('py-3', 'sm:py-6');
+                if (joinBtn) {
+                    joinBtn.classList.remove('bg-white', 'text-[#1B2B22]');
+                    joinBtn.classList.add('bg-primary-container', 'text-on-primary');
+                }
+            }
+        });
 
         // Lightbox Logic
         const lightbox = document.getElementById('lightbox');
