@@ -5,7 +5,42 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Ultimate Hunting Safaris | Professional Hunting Expeditions in New Zealand, Africa & Namibia</title>
+    <meta name="description" content="Ultimate Hunting Safaris offers professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, beginner-friendly packages, and dangerous game hunting. Join the hunt today." />
+    <meta name="keywords" content="hunting safaris, New Zealand hunting, African hunting expeditions, Namibia hunting packages, professional hunting guide, dangerous game hunting, beginner hunting trips" />
+    <link rel="canonical" href="https://www.ultimatehuntingsafaris.com/" />
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.ultimatehuntingsafaris.com/" />
+    <meta property="og:title" content="Ultimate Hunting Safaris | Professional Hunting Expeditions" />
+    <meta property="og:description" content="Professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, ethical hunting, and unforgettable adventures." />
+    <meta property="og:image" content="https://www.ultimatehuntingsafaris.com/homepage/main_section/image3.webp" />
+    <meta property="og:site_name" content="Ultimate Hunting Safaris" />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ultimate Hunting Safaris | Professional Hunting Expeditions" />
+    <meta name="twitter:description" content="Professional hunting expeditions across New Zealand, Africa, and Namibia." />
+    <meta name="twitter:image" content="https://www.ultimatehuntingsafaris.com/homepage/main_section/image3.webp" />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TourOperator",
+        "name": "Ultimate Hunting Safaris",
+        "url": "https://www.ultimatehuntingsafaris.com",
+        "logo": "https://www.ultimatehuntingsafaris.com/logo.webp",
+        "description": "Professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, beginner-friendly packages, and dangerous game hunting.",
+        "telephone": "+64273824866",
+        "email": "jacobjosemon@gmail.com",
+        "sameAs": [
+            "https://www.instagram.com/hunting_with_prochef"
+        ],
+        "areaServed": ["New Zealand", "Africa", "Namibia"],
+        "serviceType": ["Hunting Safari", "Guided Hunting Expedition", "Dangerous Game Hunting"]
+    }
+    </script>
+    <link rel="icon" type="image/webp" href="logo.webp" />
+    <link rel="icon" type="image/png" href="logo1.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;600;700&amp;family=Manrope:wght@400;500&amp;family=Work+Sans:wght@600&amp;display=swap"
@@ -147,17 +182,42 @@
             padding-bottom: 0.5rem !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
+
+        /* Story Image Slide */
+        @keyframes storySlide {
+
+            0%,
+            40% {
+                transform: translateX(0);
+            }
+
+            45%,
+            85% {
+                transform: translateX(-33.333%);
+            }
+
+            90%,
+            100% {
+                transform: translateX(-66.666%);
+            }
+        }
+
+        .animate-story-slide {
+            /* Animation handled by JS for manual control */
+        }
     </style>
 </head>
 
 <body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-primary">
     <!-- TopNavBar -->
     <header class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
-        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto transition-all duration-300" id="header-container">
-            <a class="flex items-center gap-3 sm:gap-6"
-                href="index.html">
-                <img src="logo.png" alt="Logo" class="h-10 sm:h-14 w-auto object-contain">
-                <span class="font-label-caps text-white uppercase tracking-[0.2em] text-[10px] sm:text-sm whitespace-nowrap hidden lg:block" id="logo-text">
+        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto transition-all duration-300"
+            id="header-container">
+            <a class="flex items-center gap-3 sm:gap-6" href="index.html">
+                <img src="logo.webp" alt="Logo" class="h-10 sm:h-14 w-auto object-contain">
+                <span
+                    class="font-label-caps text-white uppercase tracking-[0.2em] text-sm sm:text-base whitespace-nowrap inline-block"
+                    id="logo-text">
                     Ultimate Hunting Safaris
                 </span>
             </a>
@@ -253,14 +313,23 @@
                 href="gallery.html">Photo Gallery</a>
             <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
                 href="services.html">Our Services</a>
-            <div class="pl-10 flex flex-col"><div class="pb-2"><span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Beginner Packages</span></div>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
-                    href="services.html#package-nz">New Zealand Package</a>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
-                    href="services.html#package-africa">African Experience</a>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
-                    href="services.html#package-namibia">Hunting in Namibia</a>
-                <div class="pt-4 pb-2">
+            <div class="pl-10 flex flex-col">
+                <div class="pb-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-stone-400">workspace_premium</span>
+                    <span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Beginner
+                        Packages</span>
+                </div>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors flex items-center gap-2"
+                    href="services.html#package-nz"> <span class="w-1 h-1 rounded-full bg-stone-400"></span> New Zealand
+                    Package</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors flex items-center gap-2"
+                    href="services.html#package-africa"> <span class="w-1 h-1 rounded-full bg-stone-400"></span> African
+                    Experience</a>
+                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors flex items-center gap-2"
+                    href="services.html#package-namibia"> <span class="w-1 h-1 rounded-full bg-stone-400"></span>
+                    Hunting in Namibia</a>
+                <div class="pt-4 pb-2 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[14px] text-stone-400">workspace_premium</span>
                     <span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Dangerous
                         Game Hunting</span>
                 </div>
@@ -271,26 +340,23 @@
                 href="contact.html">Contact Us</a>
         </div>
         <div class="px-6 py-6 border-t border-stone-200">
-            <a href="contact.html#inquiry-form" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join the Hunt</a>
+            <a href="contact.html#inquiry-form"
+                class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join
+                the Hunt</a>
         </div>
     </nav>
     <main>
         <!-- Hero Section -->
         <section class="relative h-[60vh] lg:h-screen flex items-end overflow-hidden">
             <div class="absolute inset-0 z-0">
-                <div class="min-w-full h-full relative bg-[#1B2B22] overflow-hidden">
-                    <!-- Blurry Placeholder (4.4KB) -->
-                    <div class="absolute inset-0 bg-cover bg-center blur-2xl scale-110"
-                        style="background-image: url('homepage/main_section/image31.webp');"></div>
-                    <!-- High Res Image (571KB) -->
-                    <img class="relative w-full h-full object-cover transition-opacity duration-1000 opacity-0"
-                        style="object-position: 20% bottom;" data-alt="Professional hunters in their element"
-                        src="homepage/main_section/image3.jpeg" onload="this.classList.remove('opacity-0')" />
+                <div class="w-full h-full relative bg-[#1B2B22] overflow-hidden">
+                    <img class="w-full h-full object-cover" style="object-position: center 25%;"
+                        src="homepage/main_section/image3.webp" alt="Ultimate Hunting Safaris Hero" />
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-[#1B2B22]/80 via-[#1B2B22]/20 to-transparent"></div>
             </div>
-            <!-- Dot Navigation for Hero -->
-            <div id="hero-dots" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-3 z-20"></div>
+            <div
+                class="absolute inset-0 bg-gradient-to-t from-[#1B2B22]/80 via-[#1B2B22]/20 to-transparent pointer-events-none">
+            </div>
             <div class="relative z-10 px-4 sm:px-8 md:px-24 pb-2 sm:pb-20 max-w-5xl">
                 <span
                     class="font-label-caps text-primary-fixed mb-2 sm:mb-4 block uppercase tracking-[0.2em] text-[10px] sm:text-label-caps">The
@@ -307,36 +373,57 @@
                 </div>
             </div>
         </section>
-        <!-- The Shared Ritual -->
-        <section class="py-16 sm:py-section-gap pl-4 sm:pl-8 md:pl-margin-edge pr-4 sm:pr-8 md:pr-12 overflow-hidden">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-gutter items-center">
-                <div class="md:col-span-5 order-2 md:order-1 md:pr-12 lg:pl-[max(0px,calc((100vw-1280px)/2+40px))]">
-                    <span class="font-label-caps text-secondary uppercase mb-4 block">Our Story</span>
-                    <h2 class="font-headline-lg text-2xl sm:text-4xl md:text-headline-lg mb-6">Ultimate Hunting Safaris
-                    </h2>
-                    <p class="font-body-lg text-on-surface-variant mb-6">What began as a private conversation between seasoned field guides over a shared campfire has grown into 'Ultimate Hunting Safaris'—a community-driven team dedicated to the art of the hunt and the preservation of the sporting life. We believe that the expedition is more than just the pursuit; it is a story of coordination, respect, and deep connection to the wild.</p>
-                    <div class="space-y-6">
-                        <p class="font-body-lg text-on-surface-variant">Our movement was born from the desire to reconnect the modern sportsman with the primal dignity of the wilderness. By combining professional field expertise with a deep commitment to the landscape, we've created a space where hunters find true purpose and every expedition ends in a renewed respect for the nature that sustains us.</p>
-                        <p class="font-body-lg text-on-surface-variant font-medium text-primary">Today, Ultimate Hunting Safaris serves as a sanctuary for those who seek more than a trophy. We are a brotherhood and sisterhood of the woods, committed to conservation, ethics, and the timeless ritual of the shared experience in the heart of the brush.</p>
-                    </div>
-                </div>
-                <div class="md:col-span-7 order-1 md:order-2">
-                    <div
-                        class="relative aspect-[4/5] md:aspect-[4/4] lg:aspect-[16/12] w-full flex items-center justify-center">
-                        <div id="our-story-stack" class="relative w-[85%] h-[90%] md:w-[75%] md:h-[85%]">
-                            <!-- Card 1 -->
-                            <div
-                                class="story-card absolute inset-0 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
-                                <img alt="Indian man hunting in the wilderness" class="w-full h-full object-cover"
-                                    src="homepage/section2/image2.jpeg" />
+        <!-- Our Story Section -->
+        <section class="py-16 sm:py-24 px-4 sm:px-8 md:px-margin-edge overflow-hidden">
+            <div
+                class="max-w-screen-2xl mx-auto bg-[#F5F5F5] rounded-[2.5rem] p-8 md:p-16 border border-stone-200 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)]">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+                    <div class="relative order-1">
+                        <div class="aspect-square rounded-[2rem] overflow-hidden shadow-2xl relative bg-stone-200">
+                            <div id="story-slider"
+                                class="absolute inset-0 flex transition-transform duration-700 ease-in-out">
+                                <div class="min-w-full h-full">
+                                    <img alt="The Hunt Experience 1" class="w-full h-full object-cover"
+                                        src="homepage/section2/image2.jpeg" />
+                                </div>
+                                <div class="min-w-full h-full">
+                                    <img alt="The Hunt Experience 2" class="w-full h-full object-cover"
+                                        src="homepage/section2/image4.png" />
+                                </div>
                             </div>
-                            <!-- Card 2 -->
+                            <!-- Black Gradient Overlay -->
                             <div
-                                class="story-card absolute inset-0 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-[1200ms] ease-[cubic-bezier(0.25,1,0.5,1)]">
-                                <img alt="Indian man hunting in the wilderness" class="w-full h-full object-cover"
-                                    src="homepage/section2/image4.png" />
+                                class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
                             </div>
                         </div>
+                        <!-- Manual Scroll Dots -->
+                        <div id="story-dots" class="flex justify-center gap-3 mt-6"></div>
+                    </div>
+                    <!-- Right: Content -->
+                    <div class="order-2">
+                        <span class="font-label-caps text-secondary uppercase mb-6 block tracking-[0.3em]">Our
+                            Story</span>
+                        <h2 class="font-display-lg text-4xl sm:text-5xl md:text-6xl mb-8 leading-tight text-primary">
+                            Ultimate Hunting Safaris
+                        </h2>
+                        <div class="space-y-6 mb-10">
+                            <p class="font-body-lg text-on-surface-variant leading-relaxed">
+                                What began as a private conversation between seasoned field guides over a shared
+                                campfire has grown into 'Ultimate Hunting Safaris'—a community-driven team dedicated to
+                                the art of the hunt and the preservation of the sporting life. We believe that the
+                                expedition is more than just the pursuit; it is a story of coordination, respect, and
+                                deep connection to the wild.
+                            </p>
+                            <p class="font-body-lg text-on-surface-variant font-medium text-primary leading-relaxed">
+                                Today, Ultimate Hunting Safaris serves as a sanctuary for those who seek more than a
+                                trophy. We are a brotherhood and sisterhood of the woods, committed to conservation,
+                                ethics, and the timeless ritual of the shared experience in the heart of the brush.
+                            </p>
+                        </div>
+                        <a href="contact.html"
+                            class="inline-block bg-primary-container text-white px-10 py-4 rounded-full font-label-caps uppercase tracking-widest text-sm hover:bg-primary transition-all shadow-lg hover:shadow-xl active:scale-95">
+                            Join the Expedition
+                        </a>
                     </div>
                 </div>
             </div>
@@ -395,12 +482,11 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
                 <!-- Member 1 -->
                 <div class="group relative aspect-[3/4] overflow-hidden">
-                    <img alt="Lino Abraham"
+                    <img alt="Raju Paul"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="homepage/section4/team_image1.jpeg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6">
-                        <h3 class="font-headline-md text-white text-2xl">Lino Abraham</h3>
+                        src="homepage/section4/team_image3.jpeg" />
+                    <div class="absolute bottom-0 left-0 w-full bg-black/60 backdrop-blur-sm py-4 px-6">
+                        <h3 class="font-headline-md text-white text-xl uppercase tracking-widest">Raju Paul</h3>
                     </div>
                 </div>
                 <!-- Member 2 -->
@@ -408,19 +494,17 @@
                     <img alt="Jacob Josemon"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         src="homepage/section4/team_image2.jpeg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6">
-                        <h3 class="font-headline-md text-white text-2xl">Jacob Josemon</h3>
+                    <div class="absolute bottom-0 left-0 w-full bg-black/60 backdrop-blur-sm py-4 px-6">
+                        <h3 class="font-headline-md text-white text-xl uppercase tracking-widest">Jacob Josemon</h3>
                     </div>
                 </div>
-                <!-- Member 3 -->
+                <!-- Member 2 -->
                 <div class="group relative aspect-[3/4] overflow-hidden">
-                    <img alt="Raju Paul"
+                    <img alt="Lino Abraham"
                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        src="homepage/section4/team_image3.jpeg" />
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-6">
-                        <h3 class="font-headline-md text-white text-2xl">Raju Paul</h3>
+                        src="homepage/section4/team_image1.jpeg" />
+                    <div class="absolute bottom-0 left-0 w-full bg-black/60 backdrop-blur-sm py-4 px-6">
+                        <h3 class="font-headline-md text-white text-xl uppercase tracking-widest">Lino Abraham</h3>
                     </div>
                 </div>
             </div>
@@ -468,7 +552,7 @@
     <footer class="bg-[#1B2B22] dark:bg-black py-16 relative overflow-hidden">
         <!-- Faded Background Watermark -->
         <div class="absolute inset-0 flex justify-center items-center pointer-events-none select-none opacity-10">
-            <img src="logo.png" alt="Logo" class="h-96 w-auto object-contain">
+            <img src="logo.webp" alt="Logo" class="h-96 w-auto object-contain">
         </div>
 
         <div
@@ -595,7 +679,7 @@
                 for (let i = 0; i < this.totalOriginalSlides; i++) {
                     const dot = document.createElement('button');
                     const isActive = i === (this.currentIndex % this.totalOriginalSlides);
-                    dot.className = `w-2.5 h-2.5 rounded-full transition-all cursor-pointer border border-black/10 ${isActive ? 'bg-white w-6' : 'bg-white/40 hover:bg-white'}`;
+                    dot.className = `w-2.5 h-2.5 rounded-full transition-all cursor-pointer border border-black/10 ${isActive ? (this.container.id === 'hero-slider' ? 'bg-white w-6' : 'bg-black w-6') : (this.container.id === 'hero-slider' ? 'bg-white/40 hover:bg-white' : 'bg-black/20 hover:bg-black/40')}`;
                     dot.onclick = () => this.goTo(i);
                     this.dotContainer.appendChild(dot);
                 }
@@ -638,9 +722,9 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // Hero: Automatic detection (image1, image2, etc.)
-            const hero = new Carousel('hero-slider', 'hero-dots', 5000);
-            hero.autoLoad('homepage/main_section/', 'image', 'png');
+            // Our Story Slider
+            const story = new Carousel('story-slider', 'story-dots', 5000);
+            story.init();
 
             // Section 2: Stacked Cards Animation
             const storyCards = document.querySelectorAll('#our-story-stack .story-card');
@@ -762,7 +846,7 @@
         const header = document.querySelector('header');
         const headerContainer = document.getElementById('header-container');
         const joinBtn = header.querySelector('a[href*="#inquiry-form"]');
-        
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');

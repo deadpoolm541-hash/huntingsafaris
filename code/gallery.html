@@ -5,7 +5,17 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Photo Gallery | Ultimate Hunting Safaris – Field Chronicles</title>
+    <meta name="description" content="Browse the Ultimate Hunting Safaris photo gallery. Stunning field photography from hunting expeditions across New Zealand, Africa, and Namibia." />
+    <link rel="canonical" href="https://www.ultimatehuntingsafaris.com/gallery.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.ultimatehuntingsafaris.com/gallery.html" />
+    <meta property="og:title" content="Photo Gallery | Ultimate Hunting Safaris" />
+    <meta property="og:description" content="Stunning field photography from professional hunting expeditions across New Zealand, Africa, and Namibia." />
+    <meta property="og:image" content="https://www.ultimatehuntingsafaris.com/homepage/main_section/image3.webp" />
+    <meta property="og:site_name" content="Ultimate Hunting Safaris" />
+    <link rel="icon" type="image/webp" href="logo.webp" />
+    <link rel="icon" type="image/png" href="logo1.png" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Manrope:wght@400;500;600&amp;family=Work+Sans:wght@600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
@@ -110,6 +120,7 @@
             grid-template-columns: 1fr;
             gap: 16px;
         }
+
         @media (min-width: 768px) {
             .bento-grid {
                 grid-template-columns: repeat(12, 1fr);
@@ -139,14 +150,17 @@
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
         }
+
         .mobile-menu.open {
             transform: translateX(0);
         }
+
         .mobile-overlay {
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
+
         .mobile-overlay.open {
             opacity: 1;
             pointer-events: auto;
@@ -160,7 +174,7 @@
             padding-bottom: 0.5rem !important;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-        
+
         /* Lightbox Styles */
         #lightbox {
             opacity: 0;
@@ -168,14 +182,17 @@
             transition: opacity 0.4s ease;
             backdrop-filter: blur(8px);
         }
+
         #lightbox.open {
             opacity: 1;
             pointer-events: auto;
         }
+
         #lightbox-img {
             transform: scale(0.95);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
+
         #lightbox.open #lightbox-img {
             transform: scale(1);
         }
@@ -185,19 +202,19 @@
 <body class="bg-background text-on-background font-body-md">
     <!-- TopAppBar -->
     <header class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
-        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto transition-all duration-300" id="header-container">
-            <a href="index.html"
-                class="flex items-center gap-3 sm:gap-6">
-                <img src="logo.png" alt="Logo" class="h-10 sm:h-14 w-auto object-contain">
-                <span class="font-label-caps text-white uppercase tracking-[0.2em] text-[10px] sm:text-sm whitespace-nowrap hidden lg:block">
+        <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto transition-all duration-300"
+            id="header-container">
+            <a href="index.html" class="flex items-center gap-3 sm:gap-6">
+                <img src="logo.webp" alt="Logo" class="h-10 sm:h-14 w-auto object-contain">
+                <span
+                    class="font-label-caps text-white uppercase tracking-[0.2em] text-sm sm:text-base whitespace-nowrap inline-block">
                     Ultimate Hunting Safaris
                 </span>
             </a>
             <nav class="hidden xl:flex items-center gap-8 font-serif tracking-tight text-lg">
-                <a class="text-white/70 hover:text-white transition-all duration-300"
-                    href="index.html">Home</a>
-                <a class="text-white border-b-2 border-white pb-1 transition-all duration-300"
-                    href="gallery.html">Photo Gallery</a>
+                <a class="text-white/70 hover:text-white transition-all duration-300" href="index.html">Home</a>
+                <a class="text-white border-b-2 border-white pb-1 transition-all duration-300" href="gallery.html">Photo
+                    Gallery</a>
                 <!-- Our Services Dropdown -->
                 <div class="relative group">
                     <a class="text-white/70 hover:text-white transition-all duration-300 flex items-center gap-1"
@@ -212,7 +229,8 @@
                         class="absolute top-full left-0 mt-3 w-64 bg-[#FDFCFB] border border-stone-200 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 translate-y-1 group-hover:translate-y-0 z-50">
                         <div class="px-4 py-3 border-b border-stone-100">
                             <span
-                                class="text-[9px] uppercase tracking-[0.2em] text-stone-400 font-sans font-semibold">Beginner Packages</span>
+                                class="text-[9px] uppercase tracking-[0.2em] text-stone-400 font-sans font-semibold">Beginner
+                                Packages</span>
                         </div>
                         <a href="services.html#package-nz"
                             class="flex items-center gap-3 px-4 py-3.5 hover:bg-[#1B2B22] hover:text-white group/item transition-colors">
@@ -240,14 +258,13 @@
                         </a>
                         <div class="px-4 py-3 border-b border-t border-stone-100">
                             <span
-                                class="text-[9px] uppercase tracking-[0.2em] text-stone-400 font-sans font-semibold">Dangerous Game Hunting</span>
+                                class="text-[9px] uppercase tracking-[0.2em] text-stone-400 font-sans font-semibold">Dangerous
+                                Game Hunting</span>
                         </div>
                     </div>
                 </div>
-                <a class="text-white/70 hover:text-white transition-all duration-300"
-                    href="about.html">About Us</a>
-                <a class="text-white/70 hover:text-white transition-all duration-300"
-                    href="contact.html">Contact Us</a>
+                <a class="text-white/70 hover:text-white transition-all duration-300" href="about.html">About Us</a>
+                <a class="text-white/70 hover:text-white transition-all duration-300" href="contact.html">Contact Us</a>
             </nav>
             <div class="flex items-center gap-3">
                 <a href="contact.html#inquiry-form"
@@ -255,7 +272,8 @@
                     Join the Hunt
                 </a>
                 <!-- Hamburger Button -->
-                <button id="hamburger-btn" class="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5" aria-label="Open menu">
+                <button id="hamburger-btn" class="xl:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+                    aria-label="Open menu">
                     <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
                     <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
                     <span class="block w-4 h-0.5 bg-white transition-all duration-300"></span>
@@ -266,41 +284,59 @@
     <!-- Mobile Menu Overlay -->
     <div id="mobile-overlay" class="mobile-overlay fixed inset-0 bg-black/50 z-[60]"></div>
     <!-- Mobile Menu -->
-    <nav id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#FDFCFB] z-[70] flex flex-col shadow-2xl">
+    <nav id="mobile-menu"
+        class="mobile-menu fixed top-0 right-0 w-[280px] sm:w-[320px] h-full bg-[#FDFCFB] z-[70] flex flex-col shadow-2xl">
         <div class="flex justify-between items-center px-6 py-5 border-b border-stone-200">
             <span class="font-serif text-lg font-bold uppercase tracking-widest text-[#1B2B22]">Menu</span>
             <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center" aria-label="Close menu">
-                <svg class="w-6 h-6 text-[#1B2B22]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <svg class="w-6 h-6 text-[#1B2B22]" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                    stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
         </div>
         <div class="flex flex-col py-4 flex-grow overflow-y-auto">
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="index.html">Home</a>
-            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50" href="gallery.html">Photo Gallery</a>
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="services.html">Our Services</a>
-            <div class="pl-10 flex flex-col"><div class="pb-2"><span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Beginner Packages</span></div>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
-                    href="services.html#package-nz">New Zealand Package</a>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
-                    href="services.html#package-africa">African Experience</a>
-                <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors"
-                    href="services.html#package-namibia">Hunting in Namibia</a>
-                <div class="pt-4 pb-2">
-                    <span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Dangerous Game Hunting</span>
-                </div>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+                href="index.html">Home</a>
+            <a class="px-6 py-4 font-serif text-lg text-[#1B2B22] border-l-4 border-[#1B2B22] bg-stone-50"
+                href="gallery.html">Photo Gallery</a>
+            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+                href="services.html">Our Services</a>
+            <div class="pb-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px] text-stone-400">workspace_premium</span>
+                <span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Beginner
+                    Packages</span>
             </div>
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="about.html">About Us</a>
-            <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all" href="contact.html">Contact Us</a>
+            <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors flex items-center gap-2"
+                href="services.html#package-nz"> <span class="w-1 h-1 rounded-full bg-stone-400"></span> New Zealand
+                Package</a>
+            <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors flex items-center gap-2"
+                href="services.html#package-africa"> <span class="w-1 h-1 rounded-full bg-stone-400"></span> African
+                Experience</a>
+            <a class="px-4 py-2.5 font-sans text-xs uppercase tracking-widest text-stone-500 hover:text-[#1B2B22] transition-colors flex items-center gap-2"
+                href="services.html#package-namibia"> <span class="w-1 h-1 rounded-full bg-stone-400"></span> Hunting in
+                Namibia</a>
+            <div class="pt-4 pb-2 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[14px] text-stone-400">workspace_premium</span>
+                <span class="text-[10px] uppercase tracking-widest text-stone-400 font-sans font-semibold">Dangerous
+                    Game Hunting</span>
+            </div>
+        </div>
+        <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+            href="about.html">About Us</a>
+        <a class="px-6 py-4 font-serif text-lg text-stone-600 hover:bg-stone-50 border-l-4 border-transparent hover:border-stone-300 transition-all"
+            href="contact.html">Contact Us</a>
         </div>
         <div class="px-6 py-6 border-t border-stone-200">
-            <a href="contact.html#inquiry-form" class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join the Hunt</a>
+            <a href="contact.html#inquiry-form"
+                class="block w-full bg-[#1B2B22] text-white text-center py-4 font-label-caps uppercase tracking-widest text-sm">Join
+                the Hunt</a>
         </div>
     </nav>
     <main class="w-full">
         <!-- Hero Section with Quote -->
         <section class="max-w-screen-2xl mx-auto mt-0">
-            <div class="relative h-[300px] md:h-[400px] w-full overflow-hidden flex items-start justify-start bg-stone-900">
+            <div class="relative h-[300px] md:h-[450px] w-full overflow-hidden flex items-start justify-start bg-stone-900">
                 <!-- Blurred Placeholder -->
                 <img class="absolute inset-0 w-full h-full object-cover object-left blur-xl scale-110" 
                     src="photo_gallery/gallery_image_main_blur.webp" aria-hidden="true" />
@@ -309,9 +345,9 @@
                     src="photo_gallery/gallery_image_main.webp"
                     alt="Hero Gallery Image"
                     onload="this.classList.remove('opacity-0')" />
-                <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent"></div>
-                <!-- Top-weighted gradient -->
-                <div class="relative z-10 px-12 pt-16 text-left max-w-3xl">
+                <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/20 to-transparent"></div>
+                <!-- Top-left weighted text container -->
+                <div class="relative z-10 px-8 sm:px-12 pt-16 sm:pt-24 text-left max-w-3xl">
                     <span
                         class="font-label-caps text-secondary-container uppercase mb-3 block tracking-[0.3em] text-[10px] opacity-90">Field
                         Chronicles</span>
@@ -390,7 +426,7 @@
                     <img class="w-full h-auto md:h-full md:object-cover object-center transition-transform duration-700 group-hover:scale-110"
                         src="photo_gallery/gallery_image7.jpeg" />
                 </div>
-                
+
                 <!-- Bottom Row: Balanced Triptych -->
                 <div class="col-span-1 md:col-span-4 h-auto md:h-[400px] overflow-hidden group">
                     <img class="w-full h-auto md:h-full md:object-cover object-center transition-transform duration-700 group-hover:scale-110"
@@ -437,7 +473,7 @@
     <footer class="bg-[#1B2B22] dark:bg-black py-16 relative overflow-hidden">
         <!-- Faded Background Watermark -->
         <div class="absolute inset-0 flex justify-center items-center pointer-events-none select-none opacity-10">
-            <img src="logo.png" alt="Logo" class="h-96 w-auto object-contain">
+            <img src="logo.webp" alt="Logo" class="h-96 w-auto object-contain">
         </div>
 
         <div
@@ -497,11 +533,14 @@
 
     <!-- Lightbox Overlay -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 sm:p-8">
-        <button id="lightbox-close" class="absolute top-6 right-6 sm:top-8 sm:right-8 text-white/70 hover:text-white transition-colors z-[110] p-2">
+        <button id="lightbox-close"
+            class="absolute top-6 right-6 sm:top-8 sm:right-8 text-white/70 hover:text-white transition-colors z-[110] p-2">
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
         <img id="lightbox-img" class="max-w-full max-h-[85vh] object-contain shadow-2xl" src="" alt="Expanded View">
-        <div id="lightbox-caption" class="text-white mt-6 font-label-caps uppercase tracking-[0.2em] text-sm text-center max-w-2xl opacity-80"></div>
+        <div id="lightbox-caption"
+            class="text-white mt-6 font-label-caps uppercase tracking-[0.2em] text-sm text-center max-w-2xl opacity-80">
+        </div>
     </div>
 
     <script>
@@ -530,7 +569,7 @@
         const header = document.querySelector('header');
         const headerContainer = document.getElementById('header-container');
         const joinBtn = header.querySelector('a[href*="#inquiry-form"]');
-        
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
@@ -556,13 +595,13 @@
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxCaption = document.getElementById('lightbox-caption');
         const lightboxClose = document.getElementById('lightbox-close');
-        
+
         // Make all gallery items clickable
         const galleryItems = document.querySelectorAll('.bento-grid > div');
         galleryItems.forEach(item => {
             // Add pointer cursor to indicate clickability
             item.classList.add('cursor-pointer');
-            
+
             item.addEventListener('click', () => {
                 const img = item.querySelector('img');
                 if (!img) return;
@@ -582,10 +621,10 @@
         function closeLightbox() {
             lightbox.classList.remove('open');
             document.body.style.overflow = '';
-            
+
             // Delay clearing the image so it doesn't vanish before the fade-out completes
             setTimeout(() => {
-                if(!lightbox.classList.contains('open')) {
+                if (!lightbox.classList.contains('open')) {
                     lightboxImg.src = '';
                 }
             }, 400);
@@ -593,7 +632,7 @@
 
         // Close on clicking the X
         lightboxClose.addEventListener('click', closeLightbox);
-        
+
         // Close on clicking the background (outside the image)
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
