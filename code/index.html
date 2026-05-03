@@ -52,9 +52,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
         rel="stylesheet" />
-    <!-- Preload Hero Images -->
-    <link rel="preload" as="image" href="homepage/main_section/image31.webp">
-    <link rel="preload" as="image" href="homepage/main_section/image3.jpeg">
+    <!-- Preload Hero Blur Placeholders for Instant Load -->
+    <link rel="preload" as="image" href="homepage/main_section/image_desktop_blur.webp">
+    <link rel="preload" as="image" href="homepage/main_section/image_mobile_blur.webp">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
@@ -137,6 +137,15 @@
                         "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
                         "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600" }],
                         "headline-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "600" }]
+                    },
+                    "keyframes": {
+                        "fade-in-up": {
+                            "0%": { opacity: "0", transform: "translateY(30px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        }
+                    },
+                    "animation": {
+                        "fade-in-up": "fade-in-up 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards"
                     }
                 },
             },
@@ -214,11 +223,10 @@
     <header class="fixed top-0 left-0 w-full z-50 bg-transparent transition-all duration-300">
         <div class="flex justify-between items-center w-full px-4 sm:px-8 py-3 sm:py-6 max-w-screen-2xl mx-auto transition-all duration-300"
             id="header-container">
-            <a class="flex items-center gap-3 sm:gap-6" href="index.html">
-                <img src="logo.webp" alt="Logo" class="h-10 sm:h-14 w-auto object-contain">
+            <a class="flex items-center gap-2 sm:gap-6" href="index.html">
+                <img src="logo.webp" alt="Logo" class="h-8 sm:h-14 w-auto object-contain flex-shrink-0">
                 <span
-                    class="font-label-caps text-white uppercase tracking-[0.2em] text-sm sm:text-base whitespace-nowrap inline-block"
-                    id="logo-text">
+                    class="font-label-caps text-white uppercase tracking-[0.1em] sm:tracking-[0.2em] text-[10px] sm:text-base whitespace-nowrap">
                     Ultimate Hunting Safaris
                 </span>
             </a>
@@ -351,8 +359,29 @@
         <section class="relative h-[60vh] lg:h-screen flex items-end overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full relative bg-[#1B2B22] overflow-hidden">
-                    <img class="w-full h-full object-cover" style="object-position: center 25%;"
-                        src="homepage/main_section/image3.webp" alt="Ultimate Hunting Safaris Hero" />
+                    <!-- Blur Placeholder -->
+                    <img id="hero-blur" 
+                         src="homepage/main_section/image_desktop_blur.webp"
+                         class="absolute inset-0 w-full h-full object-cover blur-xl scale-110"
+                         alt="" />
+                    
+                    <!-- Main Image with Progressive Loading -->
+                    <picture>
+                        <source media="(max-width: 1024px)" srcset="homepage/main_section/image_mobile.webp">
+                        <img id="hero-main"
+                             src="homepage/main_section/image_desktop.webp" 
+                             alt="Ultimate Hunting Safaris Hero"
+                             class="w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+                             style="object-position: center;"
+                             onload="this.classList.remove('opacity-0'); document.getElementById('hero-blur').classList.add('opacity-0');" />
+                    </picture>
+
+                    <script>
+                        // Match blur placeholder to screen size immediately
+                        if (window.innerWidth <= 1024) {
+                            document.getElementById('hero-blur').src = 'homepage/main_section/image_mobile_blur.webp';
+                        }
+                    </script>
                 </div>
             </div>
             <div
@@ -360,13 +389,13 @@
             </div>
             <div class="relative z-10 px-4 sm:px-8 md:px-24 pb-2 sm:pb-20 max-w-5xl">
                 <span
-                    class="font-label-caps text-primary-fixed mb-2 sm:mb-4 block uppercase tracking-[0.2em] text-[10px] sm:text-label-caps">The
+                    class="font-label-caps text-primary-fixed mb-2 sm:mb-4 block uppercase tracking-[0.2em] text-[10px] sm:text-label-caps opacity-0 animate-fade-in-up">The
                     Bond of
                     the Wild.</span>
                 <h1
-                    class="font-display-lg text-white text-2xl sm:text-4xl md:text-5xl mb-4 sm:mb-8 leading-tight whitespace-nowrap">
+                    class="font-display-lg text-white text-2xl sm:text-4xl md:text-5xl mb-4 sm:mb-8 leading-tight whitespace-nowrap opacity-0 animate-fade-in-up [animation-delay:200ms]">
                     Ultimate Hunting Safaris</h1>
-                <div class="flex gap-4">
+                <div class="flex gap-4 opacity-0 animate-fade-in-up [animation-delay:400ms]">
                     <a href="services.html"
                         class="bg-white text-primary px-4 sm:px-8 py-3 sm:py-4 font-label-caps flex items-center gap-2 sm:gap-3 hover:bg-primary-fixed transition-colors text-xs sm:text-label-caps">
                         EXPLORE OUR SERVICES <span class="material-symbols-outlined text-sm">north_east</span>
@@ -794,7 +823,6 @@
                         section3Text.textContent += text.charAt(textIdx);
                         textIdx++;
                         setTimeout(typeText, 40);
-                    } else {
                         resetAndRepeat();
                     }
                 }
