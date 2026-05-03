@@ -6,20 +6,24 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Ultimate Hunting Safaris | Professional Hunting Expeditions in New Zealand, Africa & Namibia</title>
-    <meta name="description" content="Ultimate Hunting Safaris offers professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, beginner-friendly packages, and dangerous game hunting. Join the hunt today." />
-    <meta name="keywords" content="hunting safaris, New Zealand hunting, African hunting expeditions, Namibia hunting packages, professional hunting guide, dangerous game hunting, beginner hunting trips" />
+    <meta name="description"
+        content="Ultimate Hunting Safaris offers professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, beginner-friendly packages, and dangerous game hunting. Join the hunt today." />
+    <meta name="keywords"
+        content="hunting safaris, New Zealand hunting, African hunting expeditions, Namibia hunting packages, professional hunting guide, dangerous game hunting, beginner hunting trips" />
     <link rel="canonical" href="https://www.ultimatehuntingsafaris.com/" />
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.ultimatehuntingsafaris.com/" />
     <meta property="og:title" content="Ultimate Hunting Safaris | Professional Hunting Expeditions" />
-    <meta property="og:description" content="Professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, ethical hunting, and unforgettable adventures." />
+    <meta property="og:description"
+        content="Professional hunting expeditions across New Zealand, Africa, and Namibia. Expert guides, ethical hunting, and unforgettable adventures." />
     <meta property="og:image" content="https://www.ultimatehuntingsafaris.com/homepage/main_section/image3.webp" />
     <meta property="og:site_name" content="Ultimate Hunting Safaris" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Ultimate Hunting Safaris | Professional Hunting Expeditions" />
-    <meta name="twitter:description" content="Professional hunting expeditions across New Zealand, Africa, and Namibia." />
+    <meta name="twitter:description"
+        content="Professional hunting expeditions across New Zealand, Africa, and Namibia." />
     <meta name="twitter:image" content="https://www.ultimatehuntingsafaris.com/homepage/main_section/image3.webp" />
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -226,7 +230,8 @@
             <a class="flex items-center gap-2 sm:gap-6" href="index.html">
                 <img src="logo.webp" alt="Logo" class="h-8 sm:h-14 w-auto object-contain flex-shrink-0">
                 <span
-                    class="font-label-caps text-white uppercase tracking-[0.1em] sm:tracking-[0.2em] text-[10px] sm:text-base whitespace-nowrap">
+                    class="font-label-caps text-white uppercase tracking-[0.1em] sm:tracking-[0.2em] text-[10px] sm:text-base whitespace-nowrap"
+                    id="logo-text">
                     Ultimate Hunting Safaris
                 </span>
             </a>
@@ -356,24 +361,22 @@
     </nav>
     <main>
         <!-- Hero Section -->
-        <section class="relative h-[60vh] lg:h-screen flex items-end overflow-hidden">
+        <section class="relative h-[calc(100dvh-72px)] lg:h-screen flex items-end overflow-hidden">
             <div class="absolute inset-0 z-0">
                 <div class="w-full h-full relative bg-[#1B2B22] overflow-hidden">
-                    <!-- Blur Placeholder -->
-                    <img id="hero-blur" 
-                         src="homepage/main_section/image_desktop_blur.webp"
-                         class="absolute inset-0 w-full h-full object-cover blur-xl scale-110"
-                         alt="" />
-                    
-                    <!-- Main Image with Progressive Loading -->
-                    <picture>
+                    <!-- Blur Placeholder (Bottom Layer) -->
+                    <img id="hero-blur" src="homepage/main_section/image_desktop_blur.webp"
+                        class="absolute inset-0 w-full h-full object-cover blur-md scale-105 z-0 transition-opacity duration-700"
+                        alt="" />
+
+                    <!-- Main Image (Top Layer) -->
+                    <picture class="relative z-10">
                         <source media="(max-width: 1024px)" srcset="homepage/main_section/image_mobile.webp">
-                        <img id="hero-main"
-                             src="homepage/main_section/image_desktop.webp" 
-                             alt="Ultimate Hunting Safaris Hero"
-                             class="w-full h-full object-cover opacity-0 transition-opacity duration-1000"
-                             style="object-position: center;"
-                             onload="this.classList.remove('opacity-0'); document.getElementById('hero-blur').classList.add('opacity-0');" />
+                        <img id="hero-main" src="homepage/main_section/image_desktop.webp"
+                            alt="Ultimate Hunting Safaris Hero"
+                            class="w-full h-full object-cover opacity-0 transition-opacity duration-700"
+                            style="object-position: center;"
+                            onload="this.classList.remove('opacity-0'); setTimeout(() => { document.getElementById('hero-blur').classList.add('opacity-0'); }, 700);" />
                     </picture>
 
                     <script>
@@ -481,23 +484,7 @@
                     data-alt="High-quality, cinematic photograph of a diverse hunting team consisting of two men and one woman in rugged field gear, focused and aiming their rifles during a professional expedition in a rugged wilderness."
                     src="homepage/section3/image3.webp" loading="lazy" />
                 <div
-                    class="absolute inset-0 bg-gradient-to-t from-[#1B2B22]/60 via-transparent to-transparent flex flex-col justify-end p-8 md:p-12">
-                    <div class="relative">
-                        <!-- Ghost text to hold the space -->
-                        <div class="invisible pointer-events-none select-none" aria-hidden="true">
-                            <h3 class="font-headline-md text-3xl mb-2">The Strength of the Pack</h3>
-                            <p class="font-body-lg max-w-2xl">Seamless coordination and mutual trust define the
-                                professional hunting experience in the field.</p>
-                        </div>
-                        <!-- Typing overlay -->
-                        <div id="section3-typing-container"
-                            class="absolute inset-0 flex flex-col justify-start transition-opacity duration-1000">
-                            <h3 id="section3-typing-title" class="font-headline-md text-white text-3xl mb-2"></h3>
-                            <p id="section3-typing-text"
-                                class="text-stone-300 font-body-lg max-w-2xl after:content-['|'] after:animate-pulse after:ml-1 after:text-primary-fixed">
-                            </p>
-                        </div>
-                    </div>
+                    class="absolute inset-0 bg-gradient-to-t from-[#1B2B22]/60 via-transparent to-transparent pointer-events-none">
                 </div>
             </div>
         </section>
@@ -790,64 +777,7 @@
                 setInterval(updateStoryStack, 3000);
             }
 
-            // Section 3 Typing Animation with Scroll Trigger & Loop
-            const section3Title = document.getElementById('section3-typing-title');
-            const section3Text = document.getElementById('section3-typing-text');
-            const section3Container = document.getElementById('section3-typing-container');
 
-            if (section3Title && section3Text && section3Container) {
-                const title = "The Strength of the Pack";
-                const text = "Seamless coordination and mutual trust define the professional hunting experience in the field.";
-                let titleIdx = 0;
-                let textIdx = 0;
-                let started = false;
-
-                function resetAndRepeat() {
-                    // Disappear right away
-                    setTimeout(() => {
-                        section3Container.classList.add('opacity-0');
-
-                        setTimeout(() => {
-                            section3Title.textContent = "";
-                            section3Text.textContent = "";
-                            titleIdx = 0;
-                            textIdx = 0;
-                            section3Container.classList.remove('opacity-0');
-                            typeTitle();
-                        }, 500); // Quick reset
-                    }, 500); // Very short pause to register completion
-                }
-
-                function typeText() {
-                    if (textIdx < text.length) {
-                        section3Text.textContent += text.charAt(textIdx);
-                        textIdx++;
-                        setTimeout(typeText, 40);
-                        resetAndRepeat();
-                    }
-                }
-
-                function typeTitle() {
-                    if (titleIdx < title.length) {
-                        section3Title.textContent += title.charAt(titleIdx);
-                        titleIdx++;
-                        setTimeout(typeTitle, 60);
-                    } else {
-                        setTimeout(typeText, 400);
-                    }
-                }
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && !started) {
-                            started = true;
-                            setTimeout(typeTitle, 500);
-                        }
-                    });
-                }, { threshold: 0.5 });
-
-                observer.observe(section3Title);
-            }
         });
 
         // Mobile Menu
