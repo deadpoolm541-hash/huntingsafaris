@@ -46,15 +46,14 @@
     <link rel="icon" type="image/webp" href="logo.webp" />
     <link rel="icon" type="image/png" href="logo1.png" />
     <link rel="apple-touch-icon" href="logo1.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500;600;700&amp;family=Manrope:wght@400;500&amp;family=Work+Sans:wght@600&amp;display=swap"
         rel="stylesheet" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-        rel="stylesheet" />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
         rel="stylesheet" />
     <!-- Preload Hero Blur Placeholders for Instant Load -->
     <link rel="preload" as="image" href="homepage/main_section/image_desktop_blur.webp">
@@ -159,6 +158,15 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             vertical-align: middle;
+            /* Prevent FOUC - hide until font loads */
+            font-display: block;
+        }
+        /* Keep bottom nav icons invisible until font is ready */
+        nav .material-symbols-outlined {
+            visibility: hidden;
+        }
+        .fonts-loaded nav .material-symbols-outlined {
+            visibility: visible;
         }
 
         .field-note {
@@ -778,6 +786,11 @@
             }
 
 
+        });
+
+        // Reveal bottom nav icons only after Material Symbols font is loaded
+        document.fonts.ready.then(() => {
+            document.body.classList.add('fonts-loaded');
         });
 
         // Mobile Menu
